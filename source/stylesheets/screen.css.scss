@@ -319,6 +319,7 @@ html, body {
   // to place content above the dark box
   position: relative;
   z-index: 30;
+  padding-bottom: 200px;
 
   &:after {
     content: '';

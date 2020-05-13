@@ -1,0 +1,77 @@
+# Events
+
+## Get all Events
+
+```shell
+curl "https://invitepeople.com/api/v2/events" \
+  -H "Authorization: Bearer TOKEN"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": 1,
+    "name": "Sollicitudin Lorem",
+    "created_at": "2017-11-20T13:55:42.425+01:00",
+    "updated_at": "2018-02-14T13:15:36.789+01:00",
+    "country": "SE",
+    "address": "Lorem Dolor 36",
+    "zip": "123 45",
+    "city": "Sollicitudin",
+    "place": "Condimentum Vulputate",
+    "description": {
+      "sv": "<p>Maecenas faucibus mollis interdum. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>",
+      "en": "<p>Curabitur blandit tempus porttitor. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>"
+    },
+    "start_time": "2017-05-31T00:00:00.000+02:00",
+    "end_time": "2017-06-02T23:59:00.000+02:00",
+    "lang": "sv",
+    "organizer": {
+      "id": 1,
+      "name": "Magna",
+      "description": {
+        "sv": "Vulputate Elit Cras Tristique Quam",
+        "en": "Nibh Sollicitudin Egestas Risus Bibendum"
+      },
+      "email": "sollicitudin@invitepeople.com",
+      "website": "https://invitepeople.com/sollicitudin/"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Vestibulum Bibendum",
+    "created_at": "2017-11-20T13:55:42.425+01:00",
+    "updated_at": "2018-02-14T13:15:36.789+01:00",
+    "country": "SE",
+    "address": "Dapibus Quam 36",
+    "zip": "123 45",
+    "city": "Ullamcorper",
+    "place": "Mollis Sem",
+    "description": {
+      "sv": "<p>Nulla vitae elit libero, a pharetra augue. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>",
+      "en": "<p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac.</p>"
+    },
+    "start_time": "2017-05-31T00:00:00.000+02:00",
+    "end_time": "2017-06-02T23:59:00.000+02:00",
+    "lang": "sv",
+    "organizer": {
+      "id": 2,
+      "name": "Ipsum",
+      "description": {
+        "sv": "Venenatis Pharetra Sit Ornare Cras",
+        "en": "Purus Commodo Mollis Dolor Condimentum"
+      },
+      "email": "vestibulum@invitepeople.com",
+      "website": "https://invitepeople.com/vestibulum/"
+    }
+  }
+]
+```
+
+Use this endpoint to retrieve all Events in your organization.
+
+### HTTP Request
+
+`GET https://invitepeople.com/api/v2/events`
