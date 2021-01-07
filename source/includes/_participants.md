@@ -1,5 +1,16 @@
 # Participants
 
+## Participant
+
+The Participant object represents a User's connection to an Event.
+
+### Properties
+
+Property | Type | Description
+--------- | ----------- | -----------
+status | `string` | Possible values are `confirmed` and `destroyed`. A destroyed Participant has been completely removed from the Event.
+checked_in | `boolean` | Will return `true` if the Participant has any checked in tickets.
+
 ## Get all Participants
 
 ```shell

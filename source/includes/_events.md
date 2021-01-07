@@ -1,5 +1,9 @@
 # Events
 
+## Event
+
+The Event object represents an event with a name, time and place. An Event has many Participants.
+
 ## Get all Events
 
 ```shell
