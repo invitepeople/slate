@@ -236,6 +236,17 @@
               </ul>
           </li>
           <li>
+            <a href="#organizations" class="toc-h1 toc-link" data-title="Organizations">Organizations</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#organization" class="toc-h2 toc-link" data-title="Organization">Organization</a>
+                  </li>
+                  <li>
+                    <a href="#get-your-organization" class="toc-h2 toc-link" data-title="Get your Organization">Get your Organization</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#events" class="toc-h1 toc-link" data-title="Events">Events</a>
               <ul class="toc-list-h2">
                   <li>
@@ -247,10 +258,35 @@
               </ul>
           </li>
           <li>
+            <a href="#ticket-types" class="toc-h1 toc-link" data-title="Ticket Types">Ticket Types</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#ticket-type" class="toc-h2 toc-link" data-title="Ticket Type">Ticket Type</a>
+                  </li>
+                  <li>
+                    <a href="#get-all-ticket-types" class="toc-h2 toc-link" data-title="Get all Ticket Types">Get all Ticket Types</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#profile-fields" class="toc-h1 toc-link" data-title="Profile Fields">Profile Fields</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#profile-field" class="toc-h2 toc-link" data-title="Profile Field">Profile Field</a>
+                  </li>
+                  <li>
+                    <a href="#get-all-profile-fields" class="toc-h2 toc-link" data-title="Get all Profile Fields">Get all Profile Fields</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#participants" class="toc-h1 toc-link" data-title="Participants">Participants</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#participant" class="toc-h2 toc-link" data-title="Participant">Participant</a>
+                  </li>
+                  <li>
+                    <a href="#create-a-participant" class="toc-h2 toc-link" data-title="Create a Participant">Create a Participant</a>
                   </li>
                   <li>
                     <a href="#get-all-participants" class="toc-h2 toc-link" data-title="Get all Participants">Get all Participants</a>
@@ -261,13 +297,38 @@
               </ul>
           </li>
           <li>
+            <a href="#tickets" class="toc-h1 toc-link" data-title="Tickets">Tickets</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#ticket" class="toc-h2 toc-link" data-title="Ticket">Ticket</a>
+                  </li>
+                  <li>
+                    <a href="#create-a-ticket" class="toc-h2 toc-link" data-title="Create a Ticket">Create a Ticket</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#profile-field-values" class="toc-h1 toc-link" data-title="Profile Field Values">Profile Field Values</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#profile-field-value" class="toc-h2 toc-link" data-title="Profile Field Value">Profile Field Value</a>
+                  </li>
+                  <li>
+                    <a href="#create-a-profile-field-value" class="toc-h2 toc-link" data-title="Create a Profile Field Value">Create a Profile Field Value</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
           <li>
             <a href="#changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#2-1-0-2020-05-13" class="toc-h2 toc-link" data-title="2.1.0 2020-05-13"><code>2.1.0</code> 2020-05-13</a>
+                    <a href="#2-1-0-2021-04-04" class="toc-h2 toc-link" data-title="2.1.0 2021-04-04"><code>2.1.0</code> 2021-04-04</a>
+                  </li>
+                  <li>
+                    <a href="#2-0-1-2020-05-13" class="toc-h2 toc-link" data-title="2.0.1 2020-05-13"><code>2.0.1</code> 2020-05-13</a>
                   </li>
                   <li>
                     <a href="#2-0-0-2019-12-08" class="toc-h2 toc-link" data-title="2.0.0 2019-12-08"><code>2.0.0</code> 2019-12-08</a>
@@ -311,12 +372,12 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>client_id</td>
-<td>Your organization&#39;s Client ID</td>
+<td><strong>client_id</strong> <code>required</code></td>
+<td>Your organization&#39;s Client ID.</td>
 </tr>
 <tr>
-<td>client_secret</td>
-<td>Your organization&#39;s generated Client secret</td>
+<td><strong>client_secret</strong> <code>required</code></td>
+<td>Your organization&#39;s generated Client secret.</td>
 </tr>
 </tbody></table>
 <h2 id='authorize'>Authorize</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://invitepeople.com/api/v2/endpoint"</span> <span class="se">\</span>
@@ -329,8 +390,109 @@
 <aside class="notice">
 You must replace <code>TOKEN</code> with your token.
 </aside>
+<h1 id='organizations'>Organizations</h1><h2 id='organization'>Organization</h2>
+<p>The Organization object represents an organization in InvitePeople. When calling the API you will authenticate on behalf of an Organization and will get access to all Events and Participants under that Organization.</p>
+<h3 id='properties'>Properties</h3>
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td><code>string</code></td>
+<td>The name of the Organization.</td>
+</tr>
+<tr>
+<td>description</td>
+<td><code>string</code></td>
+<td>A description of the Organization.</td>
+</tr>
+<tr>
+<td>client_id</td>
+<td><code>string</code></td>
+<td>The ID used for API authentication of the Organization.</td>
+</tr>
+</tbody></table>
+<h2 id='get-your-organization'>Get your Organization</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://invitepeople.com/api/v2/organizations/me"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer TOKEN"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dolor Ligula"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Etiam porta sem malesuada magna mollis euismod."</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"client_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20e8a24d-c69f-4c3b-9c2e-e22941c119a8"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Use this endpoint to retrieve your own organization.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://invitepeople.com/api/v2/organizations/me</code></p>
 <h1 id='events'>Events</h1><h2 id='event'>Event</h2>
 <p>The Event object represents an event with a name, time and place. An Event has many Participants.</p>
+<h3 id='properties'>Properties</h3>
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td><code>string</code></td>
+<td>The name of the Event.</td>
+</tr>
+<tr>
+<td>country</td>
+<td><code>string</code></td>
+<td>The country of the Event&#39;s location represented by an ISO 3166-1 alpha-2 code.</td>
+</tr>
+<tr>
+<td>address</td>
+<td><code>string</code></td>
+<td>The address of the Event.</td>
+</tr>
+<tr>
+<td>zip</td>
+<td><code>string</code></td>
+<td>The zip code of the Event.</td>
+</tr>
+<tr>
+<td>city</td>
+<td><code>string</code></td>
+<td>The city of the Event.</td>
+</tr>
+<tr>
+<td>place</td>
+<td><code>string</code></td>
+<td>The name of the Event&#39;s place or location.</td>
+</tr>
+<tr>
+<td>description</td>
+<td><code>object</code></td>
+<td>The description of the Event for the registration page. An object with the Event&#39;s language codes as keys and the translated descriptions as values.</td>
+</tr>
+<tr>
+<td>start_time</td>
+<td><code>string</code></td>
+<td>The start time of the Event in ISO 8601 format.</td>
+</tr>
+<tr>
+<td>end_time</td>
+<td><code>string</code></td>
+<td>The end time of the Event in ISO 8601 format.</td>
+</tr>
+<tr>
+<td>lang</td>
+<td><code>string</code></td>
+<td>The default language of the Event represented by an ISO 639-1 code.</td>
+</tr>
+</tbody></table>
 <h2 id='get-all-events'>Get all Events</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://invitepeople.com/api/v2/events"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer TOKEN"</span>
 </code></pre>
@@ -399,6 +561,170 @@ You must replace <code>TOKEN</code> with your token.
 <p>Use this endpoint to retrieve all Events in your organization.</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>GET https://invitepeople.com/api/v2/events</code></p>
+<h1 id='ticket-types'>Ticket Types</h1><h2 id='ticket-type'>Ticket Type</h2>
+<p>The Ticket Type object represents a Ticket category for an Event. The Ticket Type can connect Tickets to the Event or to a specific Seminar.</p>
+<h3 id='properties'>Properties</h3>
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>description</td>
+<td><code>object</code></td>
+<td>The name of the Ticket Type. An object with the Event&#39;s language codes as keys and the translated names as values.</td>
+</tr>
+<tr>
+<td>kind</td>
+<td><code>string</code></td>
+<td>Possible values are <code>entrance</code> (Entrance ticket), <code>other</code> (Additional ticket) and <code>null</code>.</td>
+</tr>
+</tbody></table>
+<h2 id='get-all-ticket-types'>Get all Ticket Types</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://invitepeople.com/api/v2/events/1/ticket_types"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer TOKEN"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"sv"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mattis Purus"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sollicitudin Ullamcorper"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"entrance"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"sv"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ridiculus Venenatis Fusce"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ridiculus Venenatis Fusce"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"seminar"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ridiculus Venenatis Fusce"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Condimentum Inceptos"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-11T14:05:00.000+02:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-11T14:30:00.000+02:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"001"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"sv"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ullamcorper Sit Tellus"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ullamcorper Sit Tellus"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"seminar"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ullamcorper Sit Tellus"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mattis Pellentesque"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-11T15:35:00.000+02:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-11T16:00:00.000+02:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"002"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>Use this endpoint to retrieve all Ticket Types for an Event.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://invitepeople.com/api/v2/events/&lt;EVENT_ID&gt;/ticket_types</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>EVENT_ID</strong> <code>required</code></td>
+<td>The ID of the Event.</td>
+</tr>
+</tbody></table>
+<h1 id='profile-fields'>Profile Fields</h1><h2 id='profile-field'>Profile Field</h2>
+<p>The Profile Field object represents a custom field type for an Event.</p>
+<h3 id='properties'>Properties</h3>
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td><code>string</code></td>
+<td>A generated name for the Profile Field.</td>
+</tr>
+<tr>
+<td>kind</td>
+<td><code>string</code></td>
+<td>Possible values are <code>text_field</code>, <code>text_area</code>, <code>select</code>, <code>radio_buttons</code>, <code>multi_select</code>, <code>integer</code>, <code>boolean</code> and <code>date_field</code>.</td>
+</tr>
+<tr>
+<td>values</td>
+<td><code>array</code></td>
+<td>The values set up for Profile Fields of kind <code>select</code>, <code>radio_buttons</code> or <code>multi_select</code>.</td>
+</tr>
+<tr>
+<td>translated_name</td>
+<td><code>object</code></td>
+<td>The name of the Profile Field. An object with the Event&#39;s language codes as keys and the translated names as values.</td>
+</tr>
+</tbody></table>
+<h2 id='get-all-profile-fields'>Get all Profile Fields</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://invitepeople.com/api/v2/events/1/profile_fields"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer TOKEN"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fusce-ultricies-vestibulum-fermentum-pharetra-fringilla"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"select"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"values"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"Malesuada Sit Quam"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Tortor Mattis"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Vehicula Tellus Magna"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"translated_name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"sv"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fusce Ultricies Vestibulum"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fermentum Pharetra Fringilla"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bibendum-tellus-mollis-fermentum"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text_field"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"values"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"translated_name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"sv"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bibendum Tellus"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mollis Fermentum"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>Use this endpoint to retrieve all Profile Fields for an Event.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://invitepeople.com/api/v2/events/&lt;EVENT_ID&gt;/profile_fields</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>EVENT_ID</strong> <code>required</code></td>
+<td>The ID of the Event.</td>
+</tr>
+</tbody></table>
 <h1 id='participants'>Participants</h1><h2 id='participant'>Participant</h2>
 <p>The Participant object represents a User&#39;s connection to an Event.</p>
 <h3 id='properties'>Properties</h3>
@@ -420,6 +746,179 @@ You must replace <code>TOKEN</code> with your token.
 <td>Will return <code>true</code> if the Participant has any checked in tickets.</td>
 </tr>
 </tbody></table>
+<h2 id='create-a-participant'>Create a Participant</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://invitepeople.com/api/v2/events/1/participants"</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer TOKEN"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -d <span class="s1">'{"user": {"email": "pharetra@invitepeople.com"},
+       "profile": {"first_name": "Pharetra", "last_name": "Quam"}}'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-04-06T07:37:21.996+02:00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-04-06T07:37:22.064+02:00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"confirmed"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"checked_in"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pharetra@invitepeople.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lang"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"time_zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Stockholm"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"profile"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"company_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"zip"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pharetra"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Quam"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SE"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"profile_field_values"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"tickets"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>If an error occurs, it returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"participant already exists"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Use this endpoint to create a Participant for an Event.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST https://invitepeople.com/api/v2/events/&lt;EVENT_ID&gt;/participants</code>
+<br>
+<code>Content-Type: application/json</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>EVENT_ID</strong> <code>required</code></td>
+<td>The ID of the Event.</td>
+</tr>
+</tbody></table>
+<h3 id='parameters'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>user</strong> <code>required</code></td>
+<td><code>object</code></td>
+<td>The User for the new Participant.</td>
+</tr>
+<tr>
+<td>profile <code>optional</code></td>
+<td><code>object</code></td>
+<td>The Profile for the new Participant.</td>
+</tr>
+</tbody></table>
+<h3 id='user-parameters'>User Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>email</strong>&nbsp;<code>required</code></td>
+<td><code>string</code></td>
+<td>The email address for the User.</td>
+</tr>
+<tr>
+<td>mobile&nbsp;<code>optional</code></td>
+<td><code>string</code></td>
+<td>The mobile phone number for the User. The mobile phone number should be in international format with a valid country prefix and without any special characters or spaces, for example 4670123456.</td>
+</tr>
+</tbody></table>
+<h3 id='profile-parameters'>Profile Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>first_name&nbsp;<code>optional</code></td>
+<td><code>string</code></td>
+<td>The first name for the Profile.</td>
+</tr>
+<tr>
+<td>last_name&nbsp;<code>optional</code></td>
+<td><code>string</code></td>
+<td>The last name for the Profile.</td>
+</tr>
+<tr>
+<td>country&nbsp;<code>optional</code></td>
+<td><code>string</code></td>
+<td>The country for the Profile. Should be an ISO 3166-1 alpha-2 code.</td>
+</tr>
+<tr>
+<td>company_name&nbsp;<code>optional</code></td>
+<td><code>string</code></td>
+<td>The company name for the Profile.</td>
+</tr>
+<tr>
+<td>title&nbsp;<code>optional</code></td>
+<td><code>string</code></td>
+<td>The title for the Profile.</td>
+</tr>
+<tr>
+<td>address&nbsp;<code>optional</code></td>
+<td><code>string</code></td>
+<td>The postal address for the Profile.</td>
+</tr>
+<tr>
+<td>zip&nbsp;<code>optional</code></td>
+<td><code>string</code></td>
+<td>The zip code for the Profile.</td>
+</tr>
+<tr>
+<td>city&nbsp;<code>optional</code></td>
+<td><code>string</code></td>
+<td>The city for the Profile.</td>
+</tr>
+<tr>
+<td>phone&nbsp;<code>optional</code></td>
+<td><code>string</code></td>
+<td>The phone number for the Profile.</td>
+</tr>
+</tbody></table>
+<h3 id='returns'>Returns</h3>
+<p>If successfull it should return the created Participant object.</p>
+<h3 id='errors'>Errors</h3>
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>invalid&nbsp;email</td>
+<td>The provided email address is invalid.</td>
+</tr>
+<tr>
+<td>participant&nbsp;already&nbsp;exists</td>
+<td>A Participant for this User and Event already exists.</td>
+</tr>
+</tbody></table>
 <h2 id='get-all-participants'>Get all Participants</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://invitepeople.com/api/v2/events/1/participants"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer TOKEN"</span>
 </code></pre>
@@ -436,10 +935,17 @@ You must replace <code>TOKEN</code> with your token.
     </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
       </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"amet@invitepeople.com"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"lang"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"time_zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Berlin"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"46700000000"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"profile"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Condimentum 1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000 00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Berlin"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DE"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000 - 00 00 00"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"company_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvitePeople"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vehicula"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Amet"</span><span class="p">,</span><span class="w">
@@ -459,15 +965,17 @@ You must replace <code>TOKEN</code> with your token.
     </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
       </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"adipiscing@invitepeople.com"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"lang"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sv"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"time_zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Stockholm"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"46700000000"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 <p>Use this endpoint to retrieve all Participants for an Event.</p>
-<h3 id='http-request'>HTTP Request</h3>
+<h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET https://invitepeople.com/api/v2/events/&lt;EVENT_ID&gt;/participants</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
+<h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -475,8 +983,8 @@ You must replace <code>TOKEN</code> with your token.
 </tr>
 </thead><tbody>
 <tr>
-<td>EVENT_ID</td>
-<td>The ID of the Event</td>
+<td><strong>EVENT_ID</strong> <code>required</code></td>
+<td>The ID of the Event.</td>
 </tr>
 </tbody></table>
 <h2 id='get-a-specific-participant'>Get a specific Participant</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://invitepeople.com/api/v2/participants/1"</span> <span class="se">\</span>
@@ -490,13 +998,21 @@ You must replace <code>TOKEN</code> with your token.
   </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-11T14:56:28.719+02:00"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-09-30T08:46:37.416+02:00"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"confirmed"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"checked_in"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"amet@invitepeople.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lang"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"time_zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Berlin"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"46700000000"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"profile"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Condimentum 1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000 00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Berlin"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DE"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000 - 00 00 00"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"company_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvitePeople"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vehicula"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Amet"</span><span class="p">,</span><span class="w">
@@ -603,9 +1119,9 @@ You must replace <code>TOKEN</code> with your token.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Use this endpoint to retrieve a specific Participant.</p>
-<h3 id='http-request-2'>HTTP Request</h3>
+<h3 id='http-request-3'>HTTP Request</h3>
 <p><code>GET https://invitepeople.com/api/v2/participants/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
+<h3 id='url-parameters-3'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -613,8 +1129,234 @@ You must replace <code>TOKEN</code> with your token.
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the Participant</td>
+<td><strong>ID</strong> <code>required</code></td>
+<td>The ID of the Participant.</td>
+</tr>
+</tbody></table>
+<h1 id='tickets'>Tickets</h1><h2 id='ticket'>Ticket</h2>
+<p>The Ticket object represents a ticket belonging to a Participant. The ticket can provide access to the entire event or individual seminars.</p>
+<h3 id='properties'>Properties</h3>
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>status</td>
+<td><code>string</code></td>
+<td>Possible values are <code>Paid</code> and <code>Reserved</code>.</td>
+</tr>
+<tr>
+<td>checked_in</td>
+<td><code>boolean</code></td>
+<td>Will return true if the Participant has checked in with the Ticket.</td>
+</tr>
+<tr>
+<td>code</td>
+<td><code>string</code></td>
+<td>A generated 8 digit unique code.</td>
+</tr>
+</tbody></table>
+<h2 id='create-a-ticket'>Create a Ticket</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://invitepeople.com/api/v2/participants/1/tickets"</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer TOKEN"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -d <span class="s1">'{"ticket_type_id": 1}'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-29T10:37:15.653+02:00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-30T22:00:01.960+02:00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paid"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"checked_in"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000001"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"participant_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ticket_type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"sv"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mattis Purus"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sollicitudin Ullamcorper"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"entrance"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>If an error occurs, it returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ticket type not found"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Use this endpoint to create a Ticket for a Participant.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST https://invitepeople.com/api/v2/participants/&lt;PARTICIPANT_ID&gt;/tickets</code>
+<br>
+<code>Content-Type: application/json</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>PARTICIPANT_ID</strong> <code>required</code></td>
+<td>The ID of the Participant.</td>
+</tr>
+</tbody></table>
+<h3 id='parameters'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>ticket_type_id</strong> <code>required</code></td>
+<td><code>integer</code></td>
+<td>The ID of the Ticket Type for the new Ticket.</td>
+</tr>
+</tbody></table>
+<h3 id='returns'>Returns</h3>
+<p>If successfull it should return the created Ticket object.</p>
+<h3 id='errors'>Errors</h3>
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ticket&nbsp;type&nbsp;not&nbsp;found</td>
+<td>The provided Ticket Type ID could not be found.</td>
+</tr>
+<tr>
+<td>could&nbsp;not&nbsp;create&nbsp;ticket</td>
+<td>The Ticket could not be created.</td>
+</tr>
+</tbody></table>
+<h1 id='profile-field-values'>Profile Field Values</h1><h2 id='profile-field-value'>Profile Field Value</h2>
+<p>The Profile Field Value object represents a custom field value for a Participant.</p>
+<h3 id='properties'>Properties</h3>
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>value</td>
+<td><code>string</code></td>
+<td>The value of the Profile Field Value</td>
+</tr>
+</tbody></table>
+<h2 id='create-a-profile-field-value'>Create a Profile Field Value</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://invitepeople.com/api/v2/participants/1/profile_field_values"</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer TOKEN"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -d <span class="s1">'{"profile_field_id": 1, "value": "Malesuada Sit Quam"}'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Malesuada Sit Quam"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"profile_field"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fusce-ultricies-vestibulum-fermentum-pharetra-fringilla"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"select"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"translated_name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"sv"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fusce Ultricies Vestibulum"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fermentum Pharetra Fringilla"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>If an error occurs, it returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"incorrect value"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"possible_values"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Malesuada Sit Quam"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Tortor Mattis"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Vehicula Tellus Magna"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Use this endpoint to create a Profile Field Value for a Participant.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST https://invitepeople.com/api/v2/participants/&lt;PARTICIPANT_ID&gt;/profile_field_values</code>
+<br>
+<code>Content-Type: application/json</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>PARTICIPANT_ID</strong> <code>required</code></td>
+<td>The ID of the Participant.</td>
+</tr>
+</tbody></table>
+<h3 id='parameters'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>profile_field_id</strong>&nbsp;<code>required</code></td>
+<td><code>integer</code></td>
+<td>The ID of the Profile Field for the new Profile Field Value.</td>
+</tr>
+<tr>
+<td><strong>value</strong>&nbsp;<code>required</code></td>
+<td><code>string</code></td>
+<td>The value for the new Profile Field Value.</td>
+</tr>
+</tbody></table>
+<h3 id='returns'>Returns</h3>
+<p>If successfull it should return the created Profile Field Value object.</p>
+<h3 id='errors'>Errors</h3>
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>profile&nbsp;field&nbsp;not&nbsp;found</td>
+<td>The provided Profile Field ID could not be found.</td>
+</tr>
+<tr>
+<td>value&nbsp;cannot&nbsp;be&nbsp;empty</td>
+<td>No value provided.</td>
+</tr>
+<tr>
+<td>profile&nbsp;field&nbsp;value&nbsp;already&nbsp;exists</td>
+<td>A Profile Field Value is already created for this Profile Field and Participant. Profile Fields of kind <code>multi_select</code> may have multiple values per Profile Field.</td>
+</tr>
+<tr>
+<td>incorrect&nbsp;value</td>
+<td>The provided value is not part of the defined values of the Profile Field. Applies to Profile Fields of kind <code>select</code>, <code>radio_buttons</code>, <code>multi_select</code> and <code>boolean</code>. Response should include <code>possible_values</code> with the defined values of the Profile Field.</td>
+</tr>
+<tr>
+<td>value&nbsp;is&nbsp;not&nbsp;a&nbsp;valid&nbsp;date</td>
+<td>Applies to Profile Fields of kind <code>date_field</code>. The value should be in ISO 8601 format.</td>
 </tr>
 </tbody></table>
 <h1 id='errors'>Errors</h1>
@@ -626,6 +1368,10 @@ You must replace <code>TOKEN</code> with your token.
 <th>Meaning</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request – Your JSON is probably malformed.</td>
+</tr>
 <tr>
 <td>401</td>
 <td>Unauthorized – Your API token or is wrong.</td>
@@ -639,7 +1385,25 @@ You must replace <code>TOKEN</code> with your token.
 <td>Internal Server Error – We had a problem with our server. Try again later.</td>
 </tr>
 </tbody></table>
-<h1 id='changelog'>Changelog</h1><h2 id='2-1-0-2020-05-13'><code>2.1.0</code> 2020-05-13</h2>
+<h1 id='changelog'>Changelog</h1><h2 id='2-1-0-2021-04-04'><code>2.1.0</code> 2021-04-04</h2>
+<p>Added <code>Get your Organization</code> endpoint.</p>
+
+<p>Added <code>Get all Ticket Types</code> endpoint.</p>
+
+<p>Added <code>Get all Profile Fields</code> endpoint.</p>
+
+<p>Added <code>Create a Participant</code> endpoint.</p>
+
+<p>Added <code>Create a Ticket</code> endpoint.</p>
+
+<p>Added <code>Create a Profile Field Value</code> endpoint.</p>
+
+<p>Added keys <code>time_zone</code>, <code>lang</code>, <code>phone</code>, <code>address</code>, <code>zip</code>, <code>city</code>, <code>country</code> to the <code>Get a specific Participant</code> and <code>Get all Participants</code> endpoints.</p>
+
+<p>Added error code <code>400 Bad Request</code> to docs.</p>
+
+<p>Added Event properties and other clarifications to docs.</p>
+<h2 id='2-0-1-2020-05-13'><code>2.0.1</code> 2020-05-13</h2>
 <p>Added key <code>checked_in</code> to the <code>Get all Participants</code> endpoint.</p>
 <h2 id='2-0-0-2019-12-08'><code>2.0.0</code> 2019-12-08</h2>
 <p>Initial release.</p>
