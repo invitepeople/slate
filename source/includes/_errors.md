@@ -1,4 +1,4 @@
-# Errors
+# Error Codes
 
 The InvitePeople API uses the following error codes:
 
