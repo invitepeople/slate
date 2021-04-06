@@ -1,5 +1,9 @@
 # Changelog
 
+## `2.1.1` 2021-04-06 
+
+Added keys `visible` and `bookable` to the `Create a Participant`, `Get a specific Participant` and `Get all Participants` endpoints.
+
 ## `2.1.0` 2021-04-04 
 
 Added `Get your Organization` endpoint.

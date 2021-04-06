@@ -9,6 +9,8 @@ The Participant object represents a User's connection to an Event.
 Property | Type | Description
 --------- | ----------- | -----------
 status | `string` | Possible values are `confirmed` and `destroyed`. A destroyed Participant has been completely removed from the Event.
+visible | `boolean` | Will return `true` if the Participant is visible in the participant list.
+bookable | `boolean` | Will return `true` if the Participant is bookable for meetings and available for messages.
 checked_in | `boolean` | Will return `true` if the Participant has any checked in tickets.
 
 ## Create a Participant
@@ -30,6 +32,8 @@ curl "https://invitepeople.com/api/v2/events/1/participants" \
   "created_at": "2021-04-06T07:37:21.996+02:00",
   "updated_at": "2021-04-06T07:37:22.064+02:00",
   "status": "confirmed",
+  "visible": true,
+  "bookable": true,
   "checked_in": false,
   "user": {
     "id": 3,
@@ -82,8 +86,10 @@ Parameter | Description
 
 Parameter | Type | Description
 --------- | ----------- | -----------
-**user** `required` | `object` | The User for the new Participant.
-profile `optional` | `object` | The Profile for the new Participant.
+**user**&nbsp;`required` | `object` | The User for the new Participant.
+profile&nbsp;`optional` | `object` | The Profile for the new Participant.
+visible&nbsp;`optional` | `boolean` | Set to `false` if the Participant should not be visible in the participant list. Defaults to `true`.
+bookable&nbsp;`optional` | `boolean` | Set to `false` if the Participant should not be bookable for meetings or available for messages. Defaults to `true`.
 
 ### User Parameters
 
@@ -134,6 +140,8 @@ curl "https://invitepeople.com/api/v2/events/1/participants" \
     "created_at": "2018-04-11T14:56:28.719+02:00",
     "updated_at": "2019-09-30T08:46:37.416+02:00",
     "status": "confirmed",
+    "visible": true,
+    "bookable": true,
     "checked_in": true,
     "user": {
       "id": 1,
@@ -164,6 +172,8 @@ curl "https://invitepeople.com/api/v2/events/1/participants" \
     "created_at": "2018-04-11T14:56:28.719+02:00",
     "updated_at": "2019-12-08T16:24:56.440+01:00",
     "status": "destroyed",
+    "visible": false,
+    "bookable": true,
     "checked_in": false,
     "user": {
       "id": 2,
@@ -203,6 +213,8 @@ curl "https://invitepeople.com/api/v2/participants/1" \
   "created_at": "2018-04-11T14:56:28.719+02:00",
   "updated_at": "2019-09-30T08:46:37.416+02:00",
   "status": "confirmed",
+  "visible": true,
+  "bookable": true,
   "checked_in": true,
   "user": {
     "id": 1,
