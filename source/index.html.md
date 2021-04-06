@@ -10,8 +10,13 @@ toc_footers:
 includes:
   - getting_started
   - authentication
+  - organizations
   - events
+  - ticket_types
+  - profile_fields
   - participants
+  - tickets
+  - profile_field_values
   - errors
   - changelog
 

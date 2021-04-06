@@ -27,8 +27,8 @@ Use this endpoint to retrieve an API token. The token is valid for 24 hours.
 
 Parameter | Description
 --------- | -----------
-client_id | Your organization's Client ID
-client_secret | Your organization's generated Client secret 
+**client_id** `required` | Your organization's Client ID.
+**client_secret** `required` | Your organization's generated Client secret.
 
 ## Authorize
 

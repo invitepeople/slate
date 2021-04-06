@@ -4,6 +4,21 @@
 
 The Event object represents an event with a name, time and place. An Event has many Participants.
 
+### Properties
+
+Property | Type | Description
+--------- | ----------- | -----------
+name | `string` | The name of the Event.
+country | `string` | The country of the Event's location represented by an ISO 3166-1 alpha-2 code.
+address | `string` | The address of the Event.
+zip | `string` | The zip code of the Event.
+city | `string` | The city of the Event.
+place | `string` | The name of the Event's place or location.
+description | `object` | The description of the Event for the registration page. An object with the Event's language codes as keys and the translated descriptions as values.
+start_time | `string` | The start time of the Event in ISO 8601 format.
+end_time | `string` | The end time of the Event in ISO 8601 format.
+lang | `string` | The default language of the Event represented by an ISO 639-1 code.
+
 ## Get all Events
 
 ```shell

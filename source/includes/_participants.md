@@ -11,6 +11,113 @@ Property | Type | Description
 status | `string` | Possible values are `confirmed` and `destroyed`. A destroyed Participant has been completely removed from the Event.
 checked_in | `boolean` | Will return `true` if the Participant has any checked in tickets.
 
+## Create a Participant
+
+```shell
+curl "https://invitepeople.com/api/v2/events/1/participants" \
+  -X POST \
+  -H "Authorization: Bearer TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"user": {"email": "pharetra@invitepeople.com"},
+       "profile": {"first_name": "Pharetra", "last_name": "Quam"}}'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 3,
+  "created_at": "2021-04-06T07:37:21.996+02:00",
+  "updated_at": "2021-04-06T07:37:22.064+02:00",
+  "status": "confirmed",
+  "checked_in": false,
+  "user": {
+    "id": 3,
+    "email": "pharetra@invitepeople.com",
+    "lang": "en",
+    "time_zone": "Stockholm",
+    "mobile": null
+  },
+  "profile": {
+    "id": 3,
+    "company_name": null,
+    "title": null,
+    "address": null,
+    "zip": null,
+    "city": null,
+    "phone": null,
+    "first_name": "Pharetra",
+    "last_name": "Quam",
+    "country": "SE",
+    "profile_field_values": []
+  },
+  "tickets": []
+}
+```
+
+> If an error occurs, it returns JSON structured like this:
+
+```json
+{
+    "error": "participant already exists"
+}
+```
+
+
+Use this endpoint to create a Participant for an Event.
+
+### HTTP Request
+
+`POST https://invitepeople.com/api/v2/events/<EVENT_ID>/participants`
+<br>
+`Content-Type: application/json`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+**EVENT_ID** `required` | The ID of the Event.
+
+### Parameters
+
+Parameter | Type | Description
+--------- | ----------- | -----------
+**user** `required` | `object` | The User for the new Participant.
+profile `optional` | `object` | The Profile for the new Participant.
+
+### User Parameters
+
+Parameter | Type | Description
+--------- | ----------- | -----------
+**email**&nbsp;`required` | `string` | The email address for the User.
+mobile&nbsp;`optional` | `string` | The mobile phone number for the User. The mobile phone number should be in international format with a valid country prefix and without any special characters or spaces, for example 4670123456.
+
+### Profile Parameters
+
+Parameter | Type | Description
+--------- | ----------- | -----------
+first_name&nbsp;`optional` | `string` | The first name for the Profile.
+last_name&nbsp;`optional` | `string` | The last name for the Profile.
+country&nbsp;`optional` | `string` | The country for the Profile. Should be an ISO 3166-1 alpha-2 code.
+company_name&nbsp;`optional` | `string` | The company name for the Profile.
+title&nbsp;`optional` | `string` | The title for the Profile.
+address&nbsp;`optional` | `string` | The postal address for the Profile.
+zip&nbsp;`optional` | `string` | The zip code for the Profile.
+city&nbsp;`optional` | `string` | The city for the Profile.
+phone&nbsp;`optional` | `string` | The phone number for the Profile.
+
+### Returns
+
+If successfull it should return the created Participant object.
+
+### Errors
+
+Error | Description
+--------- | -----------
+invalid&nbsp;email | The provided email address is invalid.
+participant&nbsp;already&nbsp;exists | A Participant for this User and Event already exists.
+
+
 ## Get all Participants
 
 ```shell
@@ -31,10 +138,17 @@ curl "https://invitepeople.com/api/v2/events/1/participants" \
     "user": {
       "id": 1,
       "email": "amet@invitepeople.com",
+      "lang": "en",
+      "time_zone": "Berlin",
       "mobile": "46700000000"
     },
     "profile": {
       "id": 1,
+      "address": "Condimentum 1",
+      "zip": "000 00",
+      "city": "Berlin",
+      "country": "DE",
+      "phone": "000 - 00 00 00",
       "company_name": "InvitePeople",
       "title": "Vehicula",
       "first_name": "Amet",
@@ -54,6 +168,8 @@ curl "https://invitepeople.com/api/v2/events/1/participants" \
     "user": {
       "id": 2,
       "email": "adipiscing@invitepeople.com",
+      "lang": "sv",
+      "time_zone": "Stockholm",
       "mobile": "46700000000"
     }
   }
@@ -70,7 +186,7 @@ Use this endpoint to retrieve all Participants for an Event.
 
 Parameter | Description
 --------- | -----------
-EVENT_ID | The ID of the Event
+**EVENT_ID** `required` | The ID of the Event.
 
 ## Get a specific Participant
 
@@ -87,13 +203,21 @@ curl "https://invitepeople.com/api/v2/participants/1" \
   "created_at": "2018-04-11T14:56:28.719+02:00",
   "updated_at": "2019-09-30T08:46:37.416+02:00",
   "status": "confirmed",
+  "checked_in": true,
   "user": {
     "id": 1,
     "email": "amet@invitepeople.com",
+    "lang": "en",
+    "time_zone": "Berlin",
     "mobile": "46700000000"
   },
   "profile": {
     "id": 1,
+    "address": "Condimentum 1",
+    "zip": "000 00",
+    "city": "Berlin",
+    "country": "DE",
+    "phone": "000 - 00 00 00",
     "company_name": "InvitePeople",
     "title": "Vehicula",
     "first_name": "Amet",
@@ -210,4 +334,4 @@ Use this endpoint to retrieve a specific Participant.
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the Participant
+**ID** `required` | The ID of the Participant.
