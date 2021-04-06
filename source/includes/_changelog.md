@@ -1,10 +1,10 @@
 # Changelog
 
-## `2.1.1` 2021-04-06 
+## `2.1.1` 2021-04-06
 
 Added keys `visible` and `bookable` to the `Create a Participant`, `Get a specific Participant` and `Get all Participants` endpoints.
 
-## `2.1.0` 2021-04-04 
+## `2.1.0` 2021-04-04
 
 Added `Get your Organization` endpoint.
 
@@ -24,7 +24,7 @@ Added error code `400 Bad Request` to docs.
 
 Added Event properties and other clarifications to docs.
 
-## `2.0.1` 2020-05-13 
+## `2.0.1` 2020-05-13
 
 Added key `checked_in` to the `Get all Participants` endpoint.
 
