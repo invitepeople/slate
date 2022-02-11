@@ -1,0 +1,37 @@
+# Filters and pagination
+
+## Filter `Get all` endpoints
+
+> Example code for retriveing all records from a `Get all` endpoint.
+
+```ruby
+require 'httparty'
+
+def get_records(id_before: nil)
+  response = HTTParty.get("http://invitepeople.com/api/v2/#{@endpoint}",
+                          headers: {
+                            'Authorization': "Bearer #{@token}"
+                          },
+                          body: {
+                            id_before: id_before
+                          })
+  response.parsed_response
+end
+
+def get_all_records
+  all_records = records = get_records
+
+  while records.any?
+    records = get_records(id_before: records.last['id'])
+    all_records += records
+  end
+
+  all_records
+end
+```
+
+All `Get all` endpoints can be called with the same query parameters to filter and paginate the results. Results are always sorted descending by `id`. The max number records in a single request is **1000**.
+
+### Query Parameters
+
+<%= partial 'includes/filter_query_params_table' %>

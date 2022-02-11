@@ -1,15 +1,13 @@
 ---
 title: InvitePeople API Docs
 
-language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
-
 toc_footers:
   - <a href='https://invitepeople.com' target='_blank'>InvitePeople.com</a>
 
 includes:
   - getting_started
   - authentication
+  - filters
   - organizations
   - events
   - ticket_types
@@ -17,6 +15,8 @@ includes:
   - participants
   - tickets
   - profile_field_values
+  - webhooks
+  - webhook_deliveries
   - errors
   - changelog
 

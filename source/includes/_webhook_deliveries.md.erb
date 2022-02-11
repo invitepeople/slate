@@ -1,0 +1,81 @@
+# Webhook Deliveries
+
+## Webhook Delivery
+
+The Webhook Delivery object represents a specific callback from a Webhook. Webhook Deliveries acts as a log for successfull and failed Webhook callbacks.
+
+### Properties
+
+Property | Type | Description
+--------- | ----------- | -----------
+uuid | `string` | A unique ID for the specific callback that will be present in the header `X-IP-Webhook-Delivery-UUID` of the request.
+retries | `integer` | The number of retries for the Webhook Delivery. Max number of retries is `3`.
+target_type | `string` | The object type that triggered the Webhook. Possible values are `Participant`.
+target_id | `integer` | The ID of the object that triggered the Webhook.
+kind | `integer` | The event that triggered the Webhook. Possible values are `pariticpant_confirmed` and `participant_destroyed`.
+status | `string` | The status of the Webhook Delivery after the latest retry. Possible values are `delivering`, `success` and `failed`.
+response_code | `string` | The HTTP response code after the latest retry.
+
+## Get all Webhook Deliveries
+
+```shell
+curl "https://invitepeople.com/api/v2/webhooks/1/deliveries" \
+  -H "Authorization: Bearer TOKEN"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": 3,
+    "uuid": "06b8d557-ab59-44e2-9abf-10a300214539",
+    "retries": 0,
+    "target_type": "Participant",
+    "target_id": 1,
+    "kind": "participant_confirmed",
+    "status": "success",
+    "response_code": "200",
+    "created_at": "2022-02-05T22:09:34.806+01:00",
+    "updated_at": "2022-02-05T22:10:33.916+01:00"
+  },
+  {
+    "id": 2,
+    "uuid": "4953b473-e823-47d9-8573-e33f09ebab87",
+    "retries": 2,
+    "target_type": "Participant",
+    "target_id": 2,
+    "kind": "participant_destroyed",
+    "status": "success",
+    "response_code": "200",
+    "created_at": "2022-02-05T22:09:19.792+01:00",
+    "updated_at": "2022-02-05T22:10:33.891+01:00"
+  },
+  {
+    "id": 1,
+    "uuid": "3e164c81-69a6-44d8-9945-defedb8ac735",
+    "retries": 3,
+    "target_type": "Participant",
+    "target_id": 3,
+    "kind": "participant_confirmed",
+    "status": "failed",
+    "response_code": "401",
+    "created_at": "2022-02-05T22:05:51.402+01:00",
+    "updated_at": "2022-02-05T22:08:48.347+01:00"
+  }
+]
+```
+
+Use this endpoint to retrieve all Webhook Deliveries for a Webhook.
+
+### HTTP Request
+
+`GET https://invitepeople.com/api/v2/webhooks/<WEBHOOK_ID>/deliveries`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+**WEBHOOK_ID** `required` | The ID of the Webhook.
+
+<%= partial 'includes/filter_query_params' %>

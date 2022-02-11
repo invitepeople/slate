@@ -1,5 +1,22 @@
 # Changelog
 
+## `2.2.0` 2022-02-11
+
+Added parameters `limit`, `id_before` and `updated_after` to `Get all` endpoints. The default `limit` and max number of records in a single request is now **1000**.
+
+Added the new concept `Webhook` that can trigger callbacks for the events `participant_confirmed` and `participant_destroyed`.
+
+Added endpoints `Create a Webhook`, `Get all Webhooks`, `Update a Webhook`, `Delete a Webhook`, `Verify a Webhook` and `Get all Webhook Deliveries`.
+
+Added key `created_at` to the `Get your Organization` endpoint.
+
+Added keys `created_at` and `updated_at` to the `Get all Ticket Types`, `Get all Profile Fields`, `Get a specific Profile Field` and `Create a Profile Field Value` endpoints.
+
+Added error code `422 Unprocessable Entity` to docs.
+## `2.1.2` 2021-08-27
+
+Added `Get a specific Profile Field` endpoint.
+
 ## `2.1.1` 2021-04-06
 
 Added keys `visible` and `bookable` to the `Create a Participant`, `Get a specific Participant` and `Get all Participants` endpoints.

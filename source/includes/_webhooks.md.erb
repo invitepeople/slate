@@ -1,0 +1,511 @@
+# Webhooks
+
+## Webhook
+
+The Webhook object represents a configuration within an Organization that will trigger callbacks to a specific `payload_url`.
+
+### Properties
+
+Property | Type | Description
+--------- | ----------- | -----------
+uuid | `string` | A unique ID that will be present in the header `X-IP-Webhook-UUID` for all requests from the Webhook.
+payload_url | `string` | The URL that receives callbacks from the Webhook.
+secret | `string` | A secret string used for signing and verifying the Webhook.
+active | `boolean` | Will return `true` if the Webhook is activated.
+verified | `boolean` | Will return `true` if the Webhook is verified by InvitePeople.
+webhook_event_kinds | `array` | The events that will trigger the callback from the Webhook. Possible values are `pariticpant_confirmed` and `participant_destroyed`.
+
+<aside class="notice">
+Both <code>active</code> and <code>verify</code> needs to be <code>true</code> and at least one <code>event</code> needs to be set in order for the Webhook to deliver callbacks.
+</aside>
+
+## Webhook callback
+
+> The Webhook will POST JSON to the payload url structured like this:
+
+```json
+{
+  "webhook_uuid": "45986a64-1e16-47bc-b486-b6d9cfd191e7",
+  "delivery_uuid": "072bf312-f6b9-4f5d-a7f5-c36cc5c401a9",
+  "delivered_at": "2022-02-05T22:37:25.923+01:00",
+  "retry": 0,
+  "webhook_event_kind": "participant_confirmed",
+  "data": {
+    "participant": {
+      "id": 1,
+      "created_at": "2018-04-11T14:56:28.719+02:00",
+      "updated_at": "2019-09-30T08:46:37.416+02:00",
+      "status": "confirmed",
+      "visible": true,
+      "bookable": true,
+      "checked_in": true,
+      "user": {
+        "id": 1,
+        "email": "amet@invitepeople.com",
+        "lang": "en",
+        "time_zone": "Berlin",
+        "mobile": "46700000000"
+      },
+      "profile": {
+        "id": 1,
+        "address": "Condimentum 1",
+        "zip": "000 00",
+        "city": "Berlin",
+        "country": "DE",
+        "phone": "000 - 00 00 00",
+        "company_name": "InvitePeople",
+        "title": "Vehicula",
+        "first_name": "Amet",
+        "last_name": "Risus Porta",
+        "profile_field_values": [
+          {
+            "id": 1,
+            "value": "Malesuada Sit Quam",
+            "profile_field": {
+              "id": 1,
+              "name": "fusce-ultricies-vestibulum-fermentum-pharetra-fringilla",
+              "kind": "select",
+              "translated_name": {
+                "sv": "Fusce Ultricies Vestibulum",
+                "en": "Fermentum Pharetra Fringilla"
+              }
+            }
+          },
+          {
+            "id": 2,
+            "value": "Adipiscing Egestas Sollicitudin Condimentum",
+            "profile_field": {
+              "id": 2,
+              "name": "bibendum-tellus-mollis-fermentum",
+              "kind": "text_field",
+              "translated_name": {
+                "sv": "Bibendum Tellus",
+                "en": "Mollis Fermentum"
+              }
+            }
+          }
+        ]
+      },
+      "company": {
+        "id": 2,
+        "name": "InvitePeople"
+      },
+      "tickets": [
+        {
+          "id": 1,
+          "created_at": "2018-05-29T10:37:15.653+02:00",
+          "updated_at": "2018-05-30T22:00:01.960+02:00",
+          "status": "Paid",
+          "checked_in": true,
+          "code": "00000001",
+          "ticket_type": {
+            "id": 1,
+            "description": {
+              "sv": "Mattis Purus",
+              "en": "Sollicitudin Ullamcorper"
+              },
+            "kind": "entrance"
+          }
+        },
+        {
+          "id": 2,
+          "created_at": "2018-08-21T16:10:23.969+02:00",
+          "updated_at": "2018-10-11T14:00:16.147+02:00",
+          "status": "Paid",
+          "checked_in": true,
+          "code": "00000002",
+          "ticket_type": {
+            "id": 2,
+            "description": {
+              "sv": "Ridiculus Venenatis Fusce",
+              "en": "Ridiculus Venenatis Fusce"
+            },
+            "kind": null,
+            "seminar": {
+              "id": 1,
+              "name": "Ridiculus Venenatis Fusce",
+              "location": "Condimentum Inceptos",
+              "start_time": "2018-10-11T14:05:00.000+02:00",
+              "end_time": "2018-10-11T14:30:00.000+02:00",
+              "code": "001"
+            }
+          }
+        },
+        {
+          "id": 3,
+          "created_at": "2018-08-21T16:17:40.098+02:00",
+          "updated_at": "2018-10-11T15:36:33.921+02:00",
+          "status": "Paid",
+          "checked_in": false,
+          "code": "00000003",
+          "ticket_type": {
+            "id": 3,
+            "description": {
+              "sv": "Ullamcorper Sit Tellus",
+              "en": "Ullamcorper Sit Tellus"
+            },
+            "kind": null,
+            "seminar": {
+              "id": 2,
+              "name": "Ullamcorper Sit Tellus",
+              "location": "Mattis Pellentesque",
+              "start_time": "2018-10-11T15:35:00.000+02:00",
+              "end_time": "2018-10-11T16:00:00.000+02:00",
+              "code": "002"
+            }
+          }
+        }
+      ]
+    },
+    "event": {
+      "id": 1,
+      "name": "Sollicitudin Lorem",
+      "created_at": "2017-11-20T13:55:42.425+01:00",
+      "updated_at": "2018-02-14T13:15:36.789+01:00",
+      "country": "SE",
+      "address": "Lorem Dolor 36",
+      "zip": "123 45",
+      "city": "Sollicitudin",
+      "place": "Condimentum Vulputate",
+      "description": {
+        "sv": "<p>Maecenas faucibus mollis interdum. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>",
+        "en": "<p>Curabitur blandit tempus porttitor. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>"
+      },
+      "start_time": "2017-05-31T00:00:00.000+02:00",
+      "end_time": "2017-06-02T23:59:00.000+02:00",
+      "lang": "sv",
+      "organizer": {
+        "id": 1,
+        "name": "Magna",
+        "description": {
+          "sv": "Vulputate Elit Cras Tristique Quam",
+          "en": "Nibh Sollicitudin Egestas Risus Bibendum"
+        },
+        "email": "sollicitudin@invitepeople.com",
+        "website": "https://invitepeople.com/sollicitudin/"
+      }
+    }
+  }
+}
+```
+
+The Webhook will deliver HTTP POST requests to the `payload_url`.
+
+The requests from the Webhook will have a header `X-IP-Webhook-Signature` set making it possible to authorize them. The `X-IP-Webhook-Signature` is a HMAC SHA256 digest of the request body using the Webhook `secret`. <a href="#verify-a-webhook">See example code on how to authorize callbacks here</a>
+
+### HTTP Request
+
+`POST PAYLOAD_URL`
+<br>
+`X-IP-Webhook-Signature: sha256=HMAC_SHA265_DIGEST`
+<br>
+`X-IP-Webhook-Delivery-UUID: WEBHOOK_DELIVERY_UUID`
+<br>
+`X-IP-Webhook-UUID:	WEBHOOK_UUID`
+<br>
+`Content-Type: application/json`
+
+### Properties
+
+Property | Type | Description
+--------- | ----------- | -----------
+webhook_uuid | `string` | A unique ID of the Webhook that also will be present in the header `X-IP-Webhook-UUID`.
+webhook_delivery_uuid | `string` | A unique ID of the Webhook Delivery that also will be present in the header `X-IP-Webhook-Delivery-UUID`.
+retry | `integer` | Will be `0` for the first delivery. Max number of retries is `3`.
+webhook_event_kind | `string` | The event that triggered the Webhook. Possible values are `pariticpant_confirmed` and `participant_destroyed`.
+data | `object` | The data of the Webhook Delivery. Possible nested objects are `participant` and `event`.
+
+## Create a Webhook
+
+```shell
+curl "https://invitepeople.com/api/v2/webhooks" \
+  -X POST \
+  -H "Authorization: Bearer TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"payload_url": "https://webhook/payload/url",
+       "secret": "976c3086-aa43-48fe-ab0c-cad8556b999c",
+       "webhook_event_kinds": ["participant_confirmed"]}'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 1,
+  "uuid": "0191c943-08b8-4bbc-a2be-93b5a33393a3",
+  "payload_url": "https://webhook/payload/url",
+  "active": true,
+  "verified": false,
+  "created_at": "2022-02-08T06:57:02.047+01:00",
+  "updated_at": "2022-02-08T06:57:02.047+01:00",
+  "webhook_event_kinds": [
+    "participant_confirmed"
+  ]
+}
+```
+
+> If an error occurs, it returns JSON structured like this:
+
+```json
+{
+  "errors": [
+    "payload url cannot be empty",
+    "secret cannot be empty"
+  ]
+}
+```
+
+Use this endpoint to create a Webhook for an Organization.
+
+When a Webhook is created a request will be sent to the `payload_url` trying to verify the endpoint.
+<a href="#verify-a-webhook">Read more about verifying webhooks here</a>
+
+### HTTP Request
+
+`POST https://invitepeople.com/api/v2/webhooks`
+<br>
+`Content-Type: application/json`
+
+### Parameters
+
+Parameter | Type | Description
+--------- | ----------- | -----------
+**payload_url**&nbsp;`required` | `integer` | The payload url to where the new Webhook should deliver callbacks.
+**secret**&nbsp;`required` | `string` | The secret for the new Webhook used for verification and signing. **Save this for later!**
+webhook_event_kinds | `array` | The events that should trigger the Webhook. Possible values are `pariticpant_confirmed` and `participant_destroyed`.
+
+### Returns
+
+If successfull it should return the created Webhook object.
+
+### Errors
+
+Error | Description
+--------- | -----------
+payload&nbsp;url&nbsp;cannot&nbsp;be&nbsp;empty | No payload url provided.
+secret&nbsp;cannot&nbsp;be&nbsp;empty | No secret provided.
+incorrect&nbsp;kind | There are incorrect Webhook event kinds. Possible values are `pariticpant_confirmed` and `participant_destroyed`.
+
+## Get all Webhooks
+
+```shell
+curl "https://invitepeople.com/api/v2/webhooks" \
+  -H "Authorization: Bearer TOKEN"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": 2,
+    "uuid": "0df82a98-2795-49ad-bd72-17de61b3b1c1",
+    "payload_url": "https://webhook/payload/url",
+    "active": true,
+    "verified": true,
+    "created_at": "2022-02-05T22:17:22.571+01:00",
+    "updated_at": "2022-02-05T22:17:22.571+01:00",
+    "webhook_event_kinds": [
+      "participant_confirmed",
+    ]
+  },
+  {
+    "id": 1,
+    "uuid": "94e8bd6c-6b12-4c43-ad0c-c0dd0857ea6d",
+    "payload_url": "https://webhook/payload/url",
+    "active": true,
+    "verified": false,
+    "created_at": "2022-02-05T21:33:00.623+01:00",
+    "updated_at": "2022-02-05T21:33:00.623+01:00",
+    "webhook_event_kinds": [
+      "participant_confirmed",
+      "participant_destroyed"
+    ]
+  }
+]
+```
+
+Use this endpoint to retrieve all Webhooks in your organization.
+
+### HTTP Request
+
+`GET https://invitepeople.com/api/v2/webhooks`
+
+<%= partial 'includes/filter_query_params' %>
+
+## Update a Webhook
+
+```shell
+curl "https://invitepeople.com/api/v2/webhooks/1" \
+  -X PATCH \
+  -H "Authorization: Bearer TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"active": false}'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 1,
+  "uuid": "0191c943-08b8-4bbc-a2be-93b5a33393a3",
+  "payload_url": "https://webhook/payload/url",
+  "active": false,
+  "verified": true,
+  "created_at": "2022-02-08T06:57:02.047+01:00",
+  "updated_at": "2022-02-08T06:57:02.047+01:00",
+  "webhook_event_kinds": [
+    "participant_confirmed"
+  ]
+}
+```
+
+> If an error occurs, it returns JSON structured like this:
+
+```json
+{
+  "errors": [
+    "incorrect kind"
+  ]
+}
+```
+
+Use this endpoint to update a specific Webhook.
+
+### HTTP Request
+
+`PATCH https://invitepeople.com/api/v2/webhooks/<WEBHOOK_ID>`
+<br>
+`Content-Type: application/json`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+**WEBHOOK_ID** `required` | The ID of the Webhook.
+
+### Parameters
+
+Parameter | Type | Description
+--------- | ----------- | -----------
+active | `boolean` | Set to `false` to deactivate the Webhook, stopping all requests to the payload url.
+webhook_event_kinds | `array` | The events that should trigger the Webhook. Possible values are `pariticpant_confirmed` and `participant_destroyed`.
+
+### Returns
+
+If successfull it should return the updated Webhook object.
+
+### Errors
+
+Error | Description
+--------- | -----------
+incorrect&nbsp;kind | There are incorrect Webhook event kinds. Possible values are `pariticpant_confirmed` and `participant_destroyed`.
+
+
+## Delete a Webhook
+
+```shell
+curl "https://invitepeople.com/api/v2/webhooks/1" \
+  -X DELETE \
+  -H "Authorization: Bearer TOKEN"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 1,
+  "uuid": "0191c943-08b8-4bbc-a2be-93b5a33393a3",
+  "payload_url": "https://webhook/payload/url",
+  "active": true,
+  "verified": false,
+  "created_at": "2022-02-08T06:57:02.047+01:00",
+  "updated_at": "2022-02-08T06:57:02.047+01:00",
+  "webhook_event_kinds": [
+    "participant_confirmed"
+  ]
+}
+```
+
+Use this endpoint to delete a specific Webhook.
+
+### HTTP Request
+
+`DELETE https://invitepeople.com/api/v2/webhooks/<WEBHOOK_ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+**WEBHOOK_ID** `required` | The ID of the Webhook.
+
+### Returns
+
+If successfull it should return the deleted Webhook object.
+
+## Verify a Webhook
+
+```shell
+curl "https://invitepeople.com/api/v2/webhooks/1/verify" \
+  -X POST \
+  -H "Authorization: Bearer TOKEN"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 1,
+  "uuid": "0df82a98-2795-49ad-bd72-17de61b3b1c1",
+  "payload_url": "https://webhook/payload/url",
+  "active": true,
+  "verified": true,
+  "created_at": "2022-02-05T22:17:22.571+01:00",
+  "updated_at": "2022-02-05T22:17:22.571+01:00",
+  "webhook_event_kinds": [
+    "participant_confirmed",
+  ]
+}
+```
+
+> Example code for a payload url endpoint that receives callbacks from the Webhook.
+
+```ruby
+# The endpoint of the payload url that will receive the Webhooks
+def payload_url_endpoint
+  # Make sure only request originating from the created Webhook are accepted
+  return head 401 unless hmac_digest(request.raw_post) == request.headers['X-IP-Webhook-Signature']
+
+  # ...
+
+  # Return a HMAC SHA256 digest of the header X-IP-Webhook-Delivery-UUID to verify the endpoint
+  render plain: hmac_digest(request.headers['X-IP-Webhook-Delivery-UUID'])
+end
+
+private
+
+# Method that creates a HMAC SHA256 digest using the Webhook secret
+def hmac_digest(body)
+  "sha256=#{
+    OpenSSL::HMAC.hexdigest(
+      OpenSSL::Digest.new('sha256'),
+      ENV['WEBHOOK_SECRET'],
+      body
+    )
+  }"
+end
+```
+
+Use this endpoint to verify an existing Webhook. A request will be sent to the `payload_url` trying to verify the endpoint. The property `verified` will be set to `true` if the verification is successfull.
+
+To become verified, the payload url endpoint should respond with a HMAC SHA256 digest of the request header `X-IP-Webhook-Delivery-UUID` using the Webhook `secret`.
+
+### HTTP Request
+
+`POST https://invitepeople.com/api/v2/webhooks/<WEBHOOK_ID>/verify`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+**WEBHOOK_ID** `required` | The ID of the Webhook.

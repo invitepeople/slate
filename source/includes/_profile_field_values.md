@@ -26,6 +26,8 @@ curl "https://invitepeople.com/api/v2/participants/1/profile_field_values" \
 {
   "id": 1,
   "value": "Malesuada Sit Quam",
+  "created_at": "2021-04-06T08:51:21.996+02:00",
+  "updated_at": "2021-04-06T08:51:22.064+02:00",
   "profile_field": {
     "id": 1,
     "name": "fusce-ultricies-vestibulum-fermentum-pharetra-fringilla",
@@ -50,7 +52,6 @@ curl "https://invitepeople.com/api/v2/participants/1/profile_field_values" \
   ]
 }
 ```
-
 
 Use this endpoint to create a Profile Field Value for a Participant.
 

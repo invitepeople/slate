@@ -26,6 +26,7 @@ curl "https://invitepeople.com/api/v2/organizations/me" \
   "id": 1,
   "name": "Dolor Ligula",
   "description": "Etiam porta sem malesuada magna mollis euismod.",
+  "created_at": "2021-04-06T08:51:21.996+02:00",
   "client_id": "20e8a24d-c69f-4c3b-9c2e-e22941c119a8"
 }
 ```

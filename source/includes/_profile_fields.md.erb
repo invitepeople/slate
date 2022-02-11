@@ -1,0 +1,115 @@
+# Profile Fields
+
+## Profile Field
+
+The Profile Field object represents a custom field type for an Event.
+
+### Properties
+
+Property | Type | Description
+--------- | ----------- | -----------
+name | `string` | A generated name for the Profile Field.
+kind | `string` | Possible values are `text_field`, `text_area`, `select`, `radio_buttons`, `multi_select`, `integer`, `boolean` and `date_field`.
+values | `array` | The values set up for Profile Fields of kind `select`, `radio_buttons` or `multi_select`.
+translated_name | `object` | The name of the Profile Field. An object with the Event's language codes as keys and the translated names as values.
+statistics | `object` | Sums up the number of Profile Field Value's per value of the Profile Field. Applicable to Profile Fields of kind `select`, `radio_buttons`, `multi_select` and `boolean`.
+
+## Get all Profile Fields
+
+```shell
+curl "https://invitepeople.com/api/v2/events/1/profile_fields" \
+  -H "Authorization: Bearer TOKEN"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": 1,
+    "name": "fusce-ultricies-vestibulum-fermentum-pharetra-fringilla",
+    "kind": "select",
+    "values": [
+      "Malesuada Sit Quam",
+      "Tortor Mattis",
+      "Vehicula Tellus Magna"
+    ],
+    "created_at": "2021-04-09T10:30:01.996+02:00",
+    "updated_at": "2021-04-09T10:30:01.064+02:00",
+    "translated_name": {
+      "sv": "Fusce Ultricies Vestibulum",
+      "en": "Fermentum Pharetra Fringilla"
+    }
+  },
+  {
+    "id": 2,
+    "name": "bibendum-tellus-mollis-fermentum",
+    "kind": "text_field",
+    "values": [],
+    "created_at": "2021-04-06T08:51:21.996+02:00",
+    "updated_at": "2021-04-06T08:51:22.064+02:00",
+    "translated_name": {
+      "sv": "Bibendum Tellus",
+      "en": "Mollis Fermentum"
+    }
+  }
+]
+```
+
+Use this endpoint to retrieve all Profile Fields for an Event.
+
+### HTTP Request
+
+`GET https://invitepeople.com/api/v2/events/<EVENT_ID>/profile_fields`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+**EVENT_ID** `required` | The ID of the Event.
+
+<%= partial 'includes/filter_query_params' %>
+
+## Get a specific Profile Field
+
+```shell
+curl "https://invitepeople.com/api/v2/profile_fields/1" \
+  -H "Authorization: Bearer TOKEN"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 1,
+  "name": "fusce-ultricies-vestibulum-fermentum-pharetra-fringilla",
+  "kind": "select",
+  "values": [
+    "Malesuada Sit Quam",
+    "Tortor Mattis",
+    "Vehicula Tellus Magna"
+  ],
+  "created_at": "2021-04-09T10:30:01.996+02:00",
+  "updated_at": "2021-04-09T10:30:01.064+02:00",
+  "translated_name": {
+    "sv": "Fusce Ultricies Vestibulum",
+    "en": "Fermentum Pharetra Fringilla"
+  },
+  "statistics": {
+    "Malesuada Sit Quam": 100,
+    "Tortor Mattis": 50
+  }
+}
+```
+
+Use this endpoint to retrieve a specific Profile Field.
+
+### HTTP Request
+
+`GET https://invitepeople.com/api/v2/profile_fields/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+**ID** `required` | The ID of the Profile Field.

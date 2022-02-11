@@ -1,6 +1,5 @@
 # Getting started
-
-
+## Get your Client ID and secret
 
 To get your Client ID and generate a Client secret log in as a Supervisor Administrator and go to the API Authentication section.
 
