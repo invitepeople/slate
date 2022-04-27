@@ -1,5 +1,11 @@
 # Changelog
 
+## `2.2.1` 2022-04-27
+
+Added `Send an Email` endpoint.
+
+Added `Get a specific Email` endpoint.
+
 ## `2.2.0` 2022-02-11
 
 Added parameters `limit`, `id_before` and `updated_after` to `Get all` endpoints. The default `limit` and max number of records in a single request is now **1000**.

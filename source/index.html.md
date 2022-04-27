@@ -15,6 +15,7 @@ includes:
   - participants
   - tickets
   - profile_field_values
+  - emails
   - webhooks
   - webhook_deliveries
   - errors
