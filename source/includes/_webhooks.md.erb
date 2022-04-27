@@ -8,7 +8,7 @@ The Webhook object represents a configuration within an Organization that will t
 
 Property | Type | Description
 --------- | ----------- | -----------
-uuid | `string` | A unique ID that will be present in the header `X-IP-Webhook-UUID` for all requests from the Webhook.
+uuid | `string` | A unique ID that will be present in the header `X-Ip-Webhook-Uuid` for all requests from the Webhook.
 payload_url | `string` | The URL that receives callbacks from the Webhook.
 secret | `string` | A secret string used for signing and verifying the Webhook.
 active | `boolean` | Will return `true` if the Webhook is activated.
@@ -191,17 +191,17 @@ Both <code>active</code> and <code>verify</code> needs to be <code>true</code> a
 
 The Webhook will deliver HTTP POST requests to the `payload_url`.
 
-The requests from the Webhook will have a header `X-IP-Webhook-Signature` set making it possible to authorize them. The `X-IP-Webhook-Signature` is a HMAC SHA256 digest of the request body using the Webhook `secret`. <a href="#verify-a-webhook">See example code on how to authorize callbacks here</a>
+The requests from the Webhook will have a header `X-Ip-Webhook-Signature` set making it possible to authorize them. The `X-Ip-Webhook-Signature` is a HMAC SHA256 digest of the request body using the Webhook `secret`. <a href="#verify-a-webhook">See example code on how to authorize callbacks here</a>
 
 ### HTTP Request
 
 `POST PAYLOAD_URL`
 <br>
-`X-IP-Webhook-Signature: sha256=HMAC_SHA265_DIGEST`
+`X-Ip-Webhook-Signature: sha256=HMAC_SHA265_DIGEST`
 <br>
-`X-IP-Webhook-Delivery-UUID: WEBHOOK_DELIVERY_UUID`
+`X-Ip-Webhook-Delivery-Uuid: WEBHOOK_DELIVERY_UUID`
 <br>
-`X-IP-Webhook-UUID:	WEBHOOK_UUID`
+`X-Ip-Webhook-Uuid:	WEBHOOK_UUID`
 <br>
 `Content-Type: application/json`
 
@@ -209,8 +209,8 @@ The requests from the Webhook will have a header `X-IP-Webhook-Signature` set ma
 
 Property | Type | Description
 --------- | ----------- | -----------
-webhook_uuid | `string` | A unique ID of the Webhook that also will be present in the header `X-IP-Webhook-UUID`.
-webhook_delivery_uuid | `string` | A unique ID of the Webhook Delivery that also will be present in the header `X-IP-Webhook-Delivery-UUID`.
+webhook_uuid | `string` | A unique ID of the Webhook that also will be present in the header `X-Ip-Webhook-Uuid`.
+webhook_delivery_uuid | `string` | A unique ID of the Webhook Delivery that also will be present in the header `X-Ip-Webhook-Delivery-Uuid`.
 retry | `integer` | Will be `0` for the first delivery. Max number of retries is `3`.
 webhook_event_kind | `string` | The event that triggered the Webhook. Possible values are `pariticpant_confirmed` and `participant_destroyed`.
 data | `object` | The data of the Webhook Delivery. Possible nested objects are `participant` and `event`.
@@ -474,12 +474,12 @@ curl "https://invitepeople.com/api/v2/webhooks/1/verify" \
 # The endpoint of the payload url that will receive the Webhooks
 def payload_url_endpoint
   # Make sure only request originating from the created Webhook are accepted
-  return head 401 unless hmac_digest(request.raw_post) == request.headers['X-IP-Webhook-Signature']
+  return head 401 unless hmac_digest(request.raw_post) == request.headers['X-Ip-Webhook-Signature']
 
   # ...
 
-  # Return a HMAC SHA256 digest of the header X-IP-Webhook-Delivery-UUID to verify the endpoint
-  render plain: hmac_digest(request.headers['X-IP-Webhook-Delivery-UUID'])
+  # Return a HMAC SHA256 digest of the header X-Ip-Webhook-Delivery-Uuid to verify the endpoint
+  render plain: hmac_digest(request.headers['X-Ip-Webhook-Delivery-Uuid'])
 end
 
 private
@@ -498,7 +498,7 @@ end
 
 Use this endpoint to verify an existing Webhook. A request will be sent to the `payload_url` trying to verify the endpoint. The property `verified` will be set to `true` if the verification is successfull.
 
-To become verified, the payload url endpoint should respond with a HMAC SHA256 digest of the request header `X-IP-Webhook-Delivery-UUID` using the Webhook `secret`.
+To become verified, the payload url endpoint should respond with a HMAC SHA256 digest of the request header `X-Ip-Webhook-Delivery-Uuid` using the Webhook `secret`.
 
 ### HTTP Request
 
