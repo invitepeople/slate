@@ -1,5 +1,9 @@
 # Changelog
 
+## `2.2.2` 2022-05-18
+
+Added keys `tickets` and `profile_field_values` to the `Get all Participants` endpoint. All Participant endpoints now returns the same data structure.
+
 ## `2.2.1` 2022-04-27
 
 Added `Send an Email` endpoint.
