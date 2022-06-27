@@ -1,5 +1,9 @@
 # Changelog
 
+## `2.2.3` 2022-06-27
+
+Added keys `honorific_title` and `additional_title` to the Profile object when fetching Participants.
+
 ## `2.2.2` 2022-05-18
 
 Added keys `tickets` and `profile_field_values` to the `Get all Participants` endpoint. All Participant endpoints now returns the same data structure.
