@@ -1,5 +1,9 @@
 # Changelog
 
+## `2.2.4` 2022-09-23
+
+Added `Get a specific Ticket Type` endpoint.
+
 ## `2.2.3` 2022-06-27
 
 Added keys `honorific_title` and `additional_title` to the Profile object when fetching Participants.
