@@ -11,9 +11,9 @@ Property | Type | Description
 description | `object` | The name of the Ticket Type. An object with the Event's language codes as keys and the translated names as values.
 kind | `string` | Possible values are `entrance` (Entrance ticket), `other` (Additional ticket) and `null`.
 external_id | `string` | Represents any kind of Id in the caller's systems to reference this Ticket Type
-price | `number` | 123.45
-selling_start_time | `datetime` | Date and time sale starts for this Ticket Type.
-selling_end_time | `datetime` | Date and time sales end for this Ticket Type.
+price | `float` | Price in the events currency 123.45
+selling_start_time | `string` | Date and time sale starts for this Ticket Type. The value should be in ISO 8601 format.
+selling_end_time | `string` | Date and time sales end for this Ticket Type. The value should be in ISO 8601 format.
 min_purchase_amount | `integer` | Minimum number of tickets to buy.
 max_purchase_amount | `integer` | Maximum number of tickets allowed to buy.
 amount | `integer` | Number of available Tickets of this Ticket Type.
