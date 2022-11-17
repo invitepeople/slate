@@ -1,5 +1,10 @@
 # Changelog
 
+## `2.2.5` 2022-11-17
+
+Added `external_id` and `login_link` to Particpant object.
+Added `external_id`, `price`, `selling_start_time`, `selling_end_time`, `min_purchase_amount`, `max_purchase_amount`, `amount`, `vat_percentage`, `visibility`, `caption`, `personal_addon` to TicketType object.
+
 ## `2.2.4` 2022-09-23
 
 Added `Get a specific Ticket Type` endpoint.
