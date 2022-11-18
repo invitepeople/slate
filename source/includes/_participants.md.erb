@@ -12,6 +12,8 @@ status | `string` | Possible values are `confirmed` and `destroyed`. A destroyed
 visible | `boolean` | Will return `true` if the Participant is visible in the participant list.
 bookable | `boolean` | Will return `true` if the Participant is bookable for meetings and available for messages.
 checked_in | `boolean` | Will return `true` if the Participant has any checked in tickets.
+external_id | `string` | An external ID from another system.
+login_link | `string` | A link that can be sent to the participant letting them log in automatically, without choosing a password. 
 
 ## Create a Participant
 
@@ -35,6 +37,8 @@ curl "https://invitepeople.com/api/v2/events/1/participants" \
   "visible": true,
   "bookable": true,
   "checked_in": false,
+  "external_id": "123",
+  "login_link": "https://invitepeople.com/40f010e3-f04a-47af-9531-7857892f557a/login/c599085e-fd53-4a7a-9354-893502bc5f22",
   "user": {
     "id": 3,
     "email": "pharetra@invitepeople.com",
@@ -145,6 +149,8 @@ curl "https://invitepeople.com/api/v2/events/1/participants" \
     "visible": true,
     "bookable": true,
     "checked_in": true,
+    "external_id": "123",
+    "login_link": "https://invitepeople.com/40f010e3-f04a-47af-9531-7857892f557a/login/c599085e-fd53-4a7a-9354-893502bc5f22",
     "user": {
       "id": 1,
       "email": "amet@invitepeople.com",
@@ -273,6 +279,8 @@ curl "https://invitepeople.com/api/v2/events/1/participants" \
     "visible": false,
     "bookable": true,
     "checked_in": false,
+    "external_id": "134",
+    "login_link": "https://invitepeople.com/40f010e3-f04a-47be-9531-7857892f557a/login/c599085e-fd53-4a7a-9354-893502bc5f22",
     "user": {
       "id": 2,
       "email": "adipiscing@invitepeople.com",
@@ -316,6 +324,8 @@ curl "https://invitepeople.com/api/v2/participants/1" \
   "visible": true,
   "bookable": true,
   "checked_in": true,
+  "external_id": "134",
+  "login_link": "https://invitepeople.com/40f010e3-f04a-47be-9531-7857892f557a/login/c599085e-fd53-4a7a-9354-893502bc5f22",
   "user": {
     "id": 1,
     "email": "amet@invitepeople.com",
