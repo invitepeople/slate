@@ -2,7 +2,7 @@
 
 ## `2.2.5` 2022-11-18
 
-Added keys `external_id` and `login_link` to the Particpant object.
+Added keys `external_id` and `login_link` to the Participant object.
 
 Added `external_id`, `price`, `selling_start_time`, `selling_end_time`, `min_purchase_amount`, `max_purchase_amount`, `amount`, `vat_percentage`, `visibility`, `caption`, and `personal_addon` to the TicketType object.
 
