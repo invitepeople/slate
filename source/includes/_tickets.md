@@ -189,7 +189,7 @@ curl "https://invitepeople.com/api/v2/tickets/1" \
 ```
 
 
-Use this endpoint to get a specific Ticket.
+Use this endpoint to update a Ticket.
 
 ### HTTP Request
 
@@ -206,7 +206,7 @@ Parameter | Description
 
 ### Returns
 
-If successful it should return the Ticket object.
+If successful it should return the updated Ticket object.
 
 ### Errors
 
