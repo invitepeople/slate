@@ -204,12 +204,58 @@ Parameter | Description
 --------- | -----------
 **TICKET_ID** `required` | The ID of the Ticket.
 
+
 ### Returns
 
-If successful it should return the updated Ticket object.
+If successful it will return the updated Ticket object.
 
 ### Errors
 
 Error | Description
 --------- | -----------
 ticket&nbsp;not&nbsp;found | The provided Ticket ID could not be found.
+
+## Delete a Ticket
+
+```shell
+curl "https://invitepeople.com/api/v2/tickets/1" \
+  -X DELETE \
+  -H "Authorization: Bearer TOKEN" \
+  -H "Content-Type: application/json"
+```
+
+> If an error occurs, it returns JSON structured like this:
+
+```json
+{
+    "error": "ticket not found"
+}
+```
+
+
+Use this endpoint to delete a free Ticket.
+
+### HTTP Request
+
+`PUT https://invitepeople.com/api/v2/tickets/<TICKET_ID>`
+<br>
+`Content-Type: application/json`
+
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+**TICKET_ID** `required` | The ID of the Ticket.
+
+
+### Returns
+
+If successful it will simply return a Http Status 200.
+
+### Errors
+
+Error | Description
+--------- | -----------
+ticket&nbsp;not&nbsp;found | The provided Ticket ID could not be found.
+could&nbsp;not&nbsp;delete&nbsp;ticket | The ticket is not free.
