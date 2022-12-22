@@ -11,6 +11,9 @@ Property | Type | Description
 status | `string` | Possible values are `Paid` and `Reserved`. 
 checked_in | `boolean` | Will return true if the Participant has checked in with the Ticket.
 code | `string` | A generated 8 digit unique code.
+paid_price | `string` | The price paid for the Ticket in the Event's currency. The value is formatted as a decimal number.
+vat | `string` | The VAT paid for the Ticket in the Event's currency. The value is formatted as a decimal number.
+external_id | `string` | An external ID from another system.
 
 ## Create a Ticket
 
@@ -32,7 +35,10 @@ curl "https://invitepeople.com/api/v2/participants/1/tickets" \
   "status": "Paid",
   "checked_in": true,
   "code": "00000001",
+  "paid_price": "0.0",
+  "vat": "0.0",
   "participant_id": 1,
+  "external_id": null,
   "ticket_type": {
     "id": 1,
     "description": {
@@ -90,7 +96,6 @@ could&nbsp;not&nbsp;create&nbsp;ticket | The Ticket could not be created.
 curl "https://invitepeople.com/api/v2/tickets/1" \
   -X GET \
   -H "Authorization: Bearer TOKEN" \
-  -H "Content-Type: application/json"
 ```
 
 > The above command returns JSON structured like this:
@@ -103,7 +108,10 @@ curl "https://invitepeople.com/api/v2/tickets/1" \
   "status": "Paid",
   "checked_in": true,
   "code": "00000001",
+  "paid_price": "0.0",
+  "vat": "0.0",
   "participant_id": 1,
+  "external_id": null,
   "ticket_type": {
     "id": 1,
     "description": {
@@ -115,38 +123,17 @@ curl "https://invitepeople.com/api/v2/tickets/1" \
 }
 ```
 
-> If an error occurs, it returns JSON structured like this:
-
-```json
-{
-    "error": "ticket not found"
-}
-```
-
-
-Use this endpoint to get a specific Ticket.
+Use this endpoint to retrieve a specific Ticket.
 
 ### HTTP Request
 
-`POST https://invitepeople.com/api/v2/tickets/<TICKET_ID>`
-<br>
-`Content-Type: application/json`
+`GET https://invitepeople.com/api/v2/tickets/<ID>`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-**TICKET_ID** `required` | The ID of the Ticket.
-
-### Returns
-
-If successful it should return the Ticket object.
-
-### Errors
-
-Error | Description
---------- | -----------
-ticket&nbsp;not&nbsp;found | The provided Ticket ID could not be found.
+**ID** `required` | The ID of the Ticket.
 
 ## Update a Ticket
 
@@ -168,7 +155,68 @@ curl "https://invitepeople.com/api/v2/tickets/1" \
   "status": "Paid",
   "checked_in": true,
   "code": "00000001",
+  "paid_price": "0.0",
+  "vat": "0.0",
   "participant_id": 1,
+  "external_id": null,
+  "ticket_type": {
+    "id": 1,
+    "description": {
+      "sv": "Mattis Purus",
+      "en": "Sollicitudin Ullamcorper"
+      },
+    "kind": "entrance"
+  }
+}
+```
+
+Use this endpoint to update a Ticket.
+
+### HTTP Request
+
+`PUT https://invitepeople.com/api/v2/tickets/<ID>`
+<br>
+`Content-Type: application/json`
+
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+**ID** `required` | The ID of the Ticket.
+
+### Parameters
+
+Parameter | Type | Description
+--------- | ----------- | -----------
+checked_in | `boolean` | Sets the check in status of the Ticket.
+
+### Returns
+
+If successfull it should return the updated Ticket object.
+
+## Delete a Ticket
+
+```shell
+curl "https://invitepeople.com/api/v2/tickets/1" \
+  -X DELETE \
+  -H "Authorization: Bearer TOKEN" \
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 1,
+  "created_at": "2018-05-29T10:37:15.653+02:00",
+  "updated_at": "2018-05-30T22:00:01.960+02:00",
+  "status": "Paid",
+  "checked_in": true,
+  "code": "00000001",
+  "paid_price": "0.0",
+  "vat": "0.0",
+  "participant_id": 1,
+  "external_id": null,
   "ticket_type": {
     "id": 1,
     "description": {
@@ -184,51 +232,7 @@ curl "https://invitepeople.com/api/v2/tickets/1" \
 
 ```json
 {
-    "error": "ticket not found"
-}
-```
-
-
-Use this endpoint to update a Ticket.
-
-### HTTP Request
-
-`PUT https://invitepeople.com/api/v2/tickets/<TICKET_ID>`
-<br>
-`Content-Type: application/json`
-
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-**TICKET_ID** `required` | The ID of the Ticket.
-
-
-### Returns
-
-If successful it will return the updated Ticket object.
-
-### Errors
-
-Error | Description
---------- | -----------
-ticket&nbsp;not&nbsp;found | The provided Ticket ID could not be found.
-
-## Delete a Ticket
-
-```shell
-curl "https://invitepeople.com/api/v2/tickets/1" \
-  -X DELETE \
-  -H "Authorization: Bearer TOKEN" \
-  -H "Content-Type: application/json"
-```
-
-> If an error occurs, it returns JSON structured like this:
-
-```json
-{
-    "error": "ticket not found"
+    "error": "could not delete ticket"
 }
 ```
 
@@ -237,25 +241,22 @@ Use this endpoint to delete a free Ticket.
 
 ### HTTP Request
 
-`PUT https://invitepeople.com/api/v2/tickets/<TICKET_ID>`
-<br>
-`Content-Type: application/json`
+`DELETE https://invitepeople.com/api/v2/tickets/<ID>`
 
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-**TICKET_ID** `required` | The ID of the Ticket.
+**ID** `required` | The ID of the Ticket.
 
 
 ### Returns
 
-If successful it will simply return a Http Status 200.
+If successfull it should return the deleted Ticket object.
 
 ### Errors
 
 Error | Description
 --------- | -----------
-ticket&nbsp;not&nbsp;found | The provided Ticket ID could not be found.
-could&nbsp;not&nbsp;delete&nbsp;ticket | The ticket is not free.
+could&nbsp;not&nbsp;delete&nbsp;ticket | The ticket is not free and cannot be deleted.

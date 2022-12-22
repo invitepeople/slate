@@ -11,13 +11,13 @@ Property | Type | Description
 description | `object` | The name of the Ticket Type. An object with the Event's language codes as keys and the translated names as values.
 kind | `string` | Possible values are `entrance` (Entrance ticket), `other` (Additional ticket) and `null`.
 external_id | `string` | An external ID from another system.
-price | `float` | Price in the events currency.
+price | `string` | Price in the in the Event's currency. The value is formatted as a decimal number.
 selling_start_time | `string` | Date and time sale starts for this Ticket Type. The value should be in ISO 8601 format.
 selling_end_time | `string` | Date and time sales end for this Ticket Type. The value should be in ISO 8601 format.
 min_purchase_amount | `integer` | Minimum number of tickets per Order.
 max_purchase_amount | `integer` | Maximum number of tickets per Order.
 amount | `integer` | Number of available Tickets of this Ticket Type.
-vat_percentage | `number` | VAT rate (percentage) for this Ticket Type. 
+vat_percentage | `string` | VAT rate (percentage) for this Ticket Type. The value is formatted as a decimal number.
 visibility | `string` | Indicates the visibility of this Ticket type. Possible values are `Public`, `Private`, and `null`.
 caption | `object` | A header used to categorise the Ticket Type. An object with the Events language codes as keys and the translated names as values.
 personal_addon | `boolean` | Indicates if this Ticket Type can be added to individuals in the purchase process. Only applies to Ticket Types with kind `other` (Additional ticket).
@@ -54,13 +54,13 @@ curl "https://invitepeople.com/api/v2/events/1/ticket_types" \
     "updated_at": "2021-04-06T08:51:22.064+02:00",
     "kind": null,
     "external_id": "214322",
-    "price": 123.45,
+    "price": "123.45",
     "selling_start_time": "2021-04-06T07:37:21.996+02:00",
     "selling_end_time": "2021-04-07T07:37:21.996+02:00",
     "min_purchase_amount": 0,
     "max_purchase_amount": 5,
     "amount": 500,
-    "vat_percentage": 25.0,
+    "vat_percentage": "25.0",
     "visibility": "Public",
     "caption":  {
       "sv": "Captionus Astartes",
@@ -86,13 +86,13 @@ curl "https://invitepeople.com/api/v2/events/1/ticket_types" \
     "updated_at": "2021-04-09T10:30:01.064+02:00",
     "kind": null,
     "external_id": "214323",
-    "price": 110.15,
+    "price": "110.15",
     "selling_start_time": "2021-04-06T07:37:21.996+02:00",
     "selling_end_time": "2021-04-07T07:37:21.996+02:00",
     "min_purchase_amount": 0,
     "max_purchase_amount": 5,
     "amount": 250,
-    "vat_percentage": 25.0,
+    "vat_percentage": "25.0",
     "visibility": "Public",
     "caption": {
       "sv": "Captionus Astartes",
@@ -145,13 +145,13 @@ curl "https://invitepeople.com/api/v2/ticket_types/1" \
   "updated_at": "2021-04-06T07:37:22.064+02:00",
   "kind": "entrance",
   "external_id": "214322",
-  "price": 123.45,
+  "price": "123.45",
   "selling_start_time": "2021-04-06T07:37:21.996+02:00",
   "selling_end_time": "2021-04-07T07:37:21.996+02:00",
   "min_purchase_amount": 0,
   "max_purchase_amount": 5,
   "amount": 500,
-  "vat_percentage": 25.0,
+  "vat_percentage": "25.0",
   "visibility": "Public",
   "caption": {
     "sv": "Captionus Astartes",
