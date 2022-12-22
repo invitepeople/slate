@@ -1,5 +1,15 @@
 # Changelog
 
+## `2.2.6` 2022-12-22
+
+Added `Get a Ticket` endpoint.
+
+Added `Update a Ticket` endpoint.
+
+Added `Delete a Ticket` endpoint.
+
+Added `paid_price`, `vat`, and `external_id` to the Ticket object.
+
 ## `2.2.5` 2022-11-18
 
 Added keys `external_id` and `login_link` to the Participant object.
