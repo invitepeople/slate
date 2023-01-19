@@ -139,10 +139,10 @@ Parameter | Description
 
 ```shell
 curl "https://invitepeople.com/api/v2/tickets/1" \
-  -X PUT \
+  -X PATCH \
   -H "Authorization: Bearer TOKEN" \
   -H "Content-Type: application/json"\
-  -d '{"ticket": { "checked_in": true }}'
+  -d '{ "checked_in": true }'
 ```
 
 > The above command returns JSON structured like this:
@@ -174,7 +174,7 @@ Use this endpoint to update a Ticket.
 
 ### HTTP Request
 
-`PUT https://invitepeople.com/api/v2/tickets/<ID>`
+`PATCH https://invitepeople.com/api/v2/tickets/<ID>`
 <br>
 `Content-Type: application/json`
 
