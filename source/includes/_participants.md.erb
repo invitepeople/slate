@@ -8,7 +8,7 @@ The Participant object represents a User's connection to an Event.
 
 | Property    | Type      | Description                                                                                                          |
 |-------------|-----------|----------------------------------------------------------------------------------------------------------------------|
-| status      | `string`  | Possible values are `confirmed` and `destroyed`. A destroyed Participant has been completely removed from the Event. |
+| status      | `string`  | Possible values are `confirmed`, `admin_disabled`, and `destroyed`. A destroyed Participant has been completely removed from the Event. |
 | visible     | `boolean` | Will return `true` if the Participant is visible in the participant list.                                            |
 | bookable    | `boolean` | Will return `true` if the Participant is bookable for meetings and available for messages.                           |
 | checked_in  | `boolean` | Will return `true` if the Participant has any checked in tickets.                                                    |
@@ -20,10 +20,17 @@ The Participant object represents a User's connection to an Event.
 ```shell
 curl "https://invitepeople.com/api/v2/events/1/participants" \
   -X POST \
-  -H "Authorization: Bearer TOKEN" \
+  -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
-  -d '{"user": {"email": "pharetra@invitepeople.com"},
-       "profile": {"first_name": "Pharetra", "last_name": "Quam"}}'
+  -d '{ 
+        "user": {
+          "email": "pharetra@invitepeople.com"
+        },
+        "profile": {
+          "first_name": "Pharetra", 
+          "last_name": "Quam"
+        }
+      }'
 ```
 
 > The above command returns JSON structured like this:
@@ -85,16 +92,17 @@ Use this endpoint to create a Participant for an Event.
 
 | Parameter               | Description          |
 |-------------------------|----------------------|
-| **EVENT_ID** `required` | The ID of the Event. |
+| **EVENT_ID**&nbsp;`required` | The ID of the Event. |
 
 ### Parameters
 
-| Parameter                | Type      | Description                                                                                                          |
-|--------------------------|-----------|----------------------------------------------------------------------------------------------------------------------|
-| **user**&nbsp;`required` | `object`  | The User for the new Participant.                                                                                    |
-| profile&nbsp;`optional`  | `object`  | The Profile for the new Participant.                                                                                 |
-| visible&nbsp;`optional`  | `boolean` | Set to `false` if the Participant should not be visible in the participant list. Defaults to `true`.                 |
-| bookable&nbsp;`optional` | `boolean` | Set to `false` if the Participant should not be bookable for meetings or available for messages. Defaults to `true`. |
+| Parameter                   | Type      | Description                                                                                                          |
+|-----------------------------|-----------|----------------------------------------------------------------------------------------------------------------------|
+| **user**&nbsp;`required`    | `object`  | The User for the new Participant.                                                                                    |
+| profile&nbsp;`optional`     | `object`  | The Profile for the new Participant.                                                                                 |
+| external_id&nbsp;`optional` | `string`  | Any string identifying the participant in an external system.                                                        |
+| visible&nbsp;`optional`     | `boolean` | Set to `false` if the Participant should not be visible in the participant list. Defaults to `true`.                 |
+| bookable&nbsp;`optional`    | `boolean` | Set to `false` if the Participant should not be bookable for meetings or available for messages. Defaults to `true`. |
 
 ### User Parameters
 
@@ -123,17 +131,17 @@ If successfull it should return the created Participant object.
 
 ### Errors
 
-| Error                                | Description                                           |
-|--------------------------------------|-------------------------------------------------------|
-| invalid&nbsp;email                   | The provided email address is invalid.                |
-| participant&nbsp;already&nbsp;exists | A Participant for this User and Event already exists. |
-| provided external_id already exists  | External ids must be unique across Events.            |
+| Error                                               | Description                                           |
+|-----------------------------------------------------|-------------------------------------------------------|
+| invalid&nbsp;email                                  | The provided email address is invalid.                |
+| participant&nbsp;already&nbsp;exists                | A Participant for this User and Event already exists. |
+| provided&nbsp;external_id&nbsp;already&nbsp;exists  | External ids must be unique across Events.            |
 
 ## Get all Participants
 
 ```shell
 curl "https://invitepeople.com/api/v2/events/1/participants" \
-  -H "Authorization: Bearer TOKEN"
+  -H "Authorization: Bearer $TOKEN"
 ```
 
 > The above command returns JSON structured like this:
@@ -310,7 +318,7 @@ Use this endpoint to retrieve all Participants for an Event.
 
 | Parameter               | Description          |
 |-------------------------|----------------------|
-| **EVENT_ID** `required` | The ID of the Event. |
+| **EVENT_ID**&nbsp;`required` | The ID of the Event. |
 
 <%= partial 'includes/filter_query_params' %>
 
@@ -318,7 +326,7 @@ Use this endpoint to retrieve all Participants for an Event.
 
 ```shell
 curl "https://invitepeople.com/api/v2/participants/1" \
-  -H "Authorization: Bearer TOKEN"
+  -H "Authorization: Bearer $TOKEN"
 ```
 
 > The above command returns JSON structured like this:
@@ -475,14 +483,14 @@ Use this endpoint to retrieve a specific Participant.
 
 | Parameter         | Description                |
 |-------------------|----------------------------|
-| **ID** `required` | The ID of the Participant. |
+| **ID**&nbsp;`required` | The ID of the Participant. |
 
 ## Update a Participant
 
 ```shell
 curl "https://invitepeople.com/api/v2/participants/1" \
   -X PATCH \
-  -H "Authorization: Bearer TOKEN" \
+  -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
         visible: false,
@@ -495,9 +503,6 @@ curl "https://invitepeople.com/api/v2/participants/1" \
           city: "CityVille",
           address: "Streetstreet",
           country: "CH"
-        },
-        company: {
-          name: "New Company Name"
         }
       }'
 ```
@@ -646,6 +651,14 @@ curl "https://invitepeople.com/api/v2/participants/1" \
 }
 ```
 
+> If an error occurs, it returns JSON structured like this:
+
+```json
+{
+    "error": "invalid status provided"
+}
+```
+
 Use this endpoint to update a Participant.
 
 ### HTTP Request
@@ -656,7 +669,7 @@ Use this endpoint to update a Participant.
 
 | Parameter         | Description                |
 |-------------------|----------------------------|
-| **ID** `required` | The ID of the Participant. |
+| **ID**&nbsp;`required` | The ID of the Participant. |
 
 ### Parameters
 
@@ -665,7 +678,7 @@ Use this endpoint to update a Participant.
 | external_id&nbsp;`optional` | `string`  | Any string identifying the participant in an external system.                                                        |
 | visible&nbsp;`optional`     | `boolean` | Set to `false` if the Participant should not be visible in the participant list. Defaults to `true`.                 |
 | bookable&nbsp;`optional`    | `boolean` | Set to `false` if the Participant should not be bookable for meetings or available for messages. Defaults to `true`. |
-| status&nbsp;`optional`      | `string`  | A string indicating status of the Participant. Valid values are `new`, `confirmed` and `admin_disabled`              |
+| status&nbsp;`optional`      | `string`  | A string indicating status of the Participant. Valid values are `confirmed` and `admin_disabled`.                    |
 | profile&nbsp;`optional`     | `object`  | Object containing changes to be made on the profile.                                                                 |
 
 ### Profile Parameters
@@ -688,9 +701,8 @@ If successful the updated Participant object is returned
 
 ### Errors
 
-| Error                                | Description                                           |
-|--------------------------------------|-------------------------------------------------------|
-| participant&nbsp;already&nbsp;exists | A Participant for this User and Event already exists. |
-| provided external_id already exists  | External ids must be unique across Events.            |
-| invalid status provided: <STATUS>    | The status value is not valid.                        |
-| could not update participant         | An internal error occured.                            |
+| Error                                               | Description                                           |
+|-----------------------------------------------------|-------------------------------------------------------|
+| provided&nbsp;external_id&nbsp;already&nbsp;exists  | External ids must be unique across Events.            |
+| invalid&nbsp;status&nbsp;provided                   | The status value is not valid.                        |
+| could&nbsp;not&nbsp;update&nbsp;participant         | An internal error occured.                            |

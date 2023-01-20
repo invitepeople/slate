@@ -15,9 +15,9 @@ value | `string` | The value of the Profile Field Value
 ```shell
 curl "https://invitepeople.com/api/v2/participants/1/profile_field_values" \
   -X POST \
-  -H "Authorization: Bearer TOKEN" \
+  -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
-  -d '{"profile_field_id": 1, "value": "Malesuada Sit Quam"}'
+  -d '{ "profile_field_id": 1, "value": "Malesuada Sit Quam" }'
 ```
 
 > The above command returns JSON structured like this:
@@ -65,7 +65,7 @@ Use this endpoint to create a Profile Field Value for a Participant.
 
 Parameter | Description
 --------- | -----------
-**PARTICIPANT_ID** `required` | The ID of the Participant.
+**PARTICIPANT_ID**&nbsp;`required` | The ID of the Participant.
 
 ### Parameters
 
