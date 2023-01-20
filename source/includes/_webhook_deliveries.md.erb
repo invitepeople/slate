@@ -20,7 +20,7 @@ response_code | `string` | The HTTP response code after the latest retry.
 
 ```shell
 curl "https://invitepeople.com/api/v2/webhooks/1/deliveries" \
-  -H "Authorization: Bearer TOKEN"
+  -H "Authorization: Bearer $TOKEN"
 ```
 
 > The above command returns JSON structured like this:
@@ -76,6 +76,6 @@ Use this endpoint to retrieve all Webhook Deliveries for a Webhook.
 
 Parameter | Description
 --------- | -----------
-**WEBHOOK_ID** `required` | The ID of the Webhook.
+**WEBHOOK_ID**&nbsp;`required` | The ID of the Webhook.
 
 <%= partial 'includes/filter_query_params' %>

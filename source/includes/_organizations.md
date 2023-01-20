@@ -16,7 +16,7 @@ client_id | `string` | The ID used for API authentication of the Organization.
 
 ```shell
 curl "https://invitepeople.com/api/v2/organizations/me" \
-  -H "Authorization: Bearer TOKEN"
+  -H "Authorization: Bearer $TOKEN"
 ```
 
 > The above command returns JSON structured like this:

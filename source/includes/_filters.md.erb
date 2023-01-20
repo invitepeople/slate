@@ -8,13 +8,15 @@
 require 'httparty'
 
 def get_records(id_before: nil)
-  response = HTTParty.get("http://invitepeople.com/api/v2/#{@endpoint}",
-                          headers: {
-                            'Authorization': "Bearer #{@token}"
-                          },
-                          body: {
-                            id_before: id_before
-                          })
+  response = HTTParty.get(
+    "http://invitepeople.com/api/v2/#{@endpoint}",
+    headers: {
+      'Authorization': "Bearer #{@token}"
+    },
+    body: {
+      id_before: id_before
+    }
+  )
   response.parsed_response
 end
 

@@ -20,9 +20,9 @@ external_id | `string` | An external ID from another system.
 ```shell
 curl "https://invitepeople.com/api/v2/participants/1/tickets" \
   -X POST \
-  -H "Authorization: Bearer TOKEN" \
+  -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
-  -d '{"ticket_type_id": 1}'
+  -d '{ "ticket_type_id": 1 }'
 ```
 
 > The above command returns JSON structured like this:
@@ -71,13 +71,13 @@ Use this endpoint to create a Ticket for a Participant.
 
 Parameter | Description
 --------- | -----------
-**PARTICIPANT_ID** `required` | The ID of the Participant.
+**PARTICIPANT_ID**&nbsp;`required` | The ID of the Participant.
 
 ### Parameters
 
 Parameter | Type | Description
 --------- | ----------- | -----------
-**ticket_type_id** `required` | `integer` | The ID of the Ticket Type for the new Ticket.
+**ticket_type_id**&nbsp;`required` | `integer` | The ID of the Ticket Type for the new Ticket.
 
 ### Returns
 
@@ -95,7 +95,7 @@ could&nbsp;not&nbsp;create&nbsp;ticket | The Ticket could not be created.
 ```shell
 curl "https://invitepeople.com/api/v2/tickets/1" \
   -X GET \
-  -H "Authorization: Bearer TOKEN" \
+  -H "Authorization: Bearer $TOKEN" \
 ```
 
 > The above command returns JSON structured like this:
@@ -133,14 +133,14 @@ Use this endpoint to retrieve a specific Ticket.
 
 Parameter | Description
 --------- | -----------
-**ID** `required` | The ID of the Ticket.
+**ID**&nbsp;`required` | The ID of the Ticket.
 
 ## Update a Ticket
 
 ```shell
 curl "https://invitepeople.com/api/v2/tickets/1" \
   -X PATCH \
-  -H "Authorization: Bearer TOKEN" \
+  -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json"\
   -d '{ "checked_in": true }'
 ```
@@ -183,7 +183,7 @@ Use this endpoint to update a Ticket.
 
 Parameter | Description
 --------- | -----------
-**ID** `required` | The ID of the Ticket.
+**ID**&nbsp;`required` | The ID of the Ticket.
 
 ### Parameters
 
@@ -200,7 +200,7 @@ If successfull it should return the updated Ticket object.
 ```shell
 curl "https://invitepeople.com/api/v2/tickets/1" \
   -X DELETE \
-  -H "Authorization: Bearer TOKEN" \
+  -H "Authorization: Bearer $TOKEN" \
 ```
 
 > The above command returns JSON structured like this:
@@ -248,7 +248,7 @@ Use this endpoint to delete a free Ticket.
 
 Parameter | Description
 --------- | -----------
-**ID** `required` | The ID of the Ticket.
+**ID**&nbsp;`required` | The ID of the Ticket.
 
 
 ### Returns

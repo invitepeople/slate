@@ -1,5 +1,11 @@
 # Changelog
 
+## `2.2.7` 2023-01-20
+
+Added `Get a specific Event` endpoint.
+
+Added `Update a Participant` endpoint.
+
 ## `2.2.6` 2022-12-22
 
 Added `Get a Ticket` endpoint.

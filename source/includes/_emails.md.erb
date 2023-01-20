@@ -17,9 +17,9 @@ to | `string` | The email address that the email was sent to.
 ```shell
 curl "https://invitepeople.com/api/v2/emails" \
   -X POST \
-  -H "Authorization: Bearer TOKEN" \
+  -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
-  -d '{"ticket_id": 1}'
+  -d '{ "ticket_id": 1 }'
 ```
 
 > The above command returns JSON structured like this:
@@ -55,7 +55,7 @@ Use this endpoint to send a confirmation Email for a specific Ticket.
 
 Parameter | Type | Description
 --------- | ----------- | -----------
-**ticket_id** `required` | `integer` | The ID of the Ticket for which a confirmation email should be sent.
+**ticket_id**&nbsp;`required` | `integer` | The ID of the Ticket for which a confirmation email should be sent.
 
 ### Returns
 
@@ -73,7 +73,7 @@ email&nbsp;could&nbsp;not&nbsp;be&nbsp;created | The Email could not be created.
 
 ```shell
 curl "https://invitepeople.com/api/v2/emails/1" \
-  -H "Authorization: Bearer TOKEN"
+  -H "Authorization: Bearer $TOKEN"
 ```
 
 > The above command returns JSON structured like this:
@@ -109,4 +109,4 @@ Use this endpoint to retrieve a specific Email and related Email Events.
 
 Parameter | Description
 --------- | -----------
-**ID** `required` | The ID of the Email.
+**ID**&nbsp;`required` | The ID of the Email.

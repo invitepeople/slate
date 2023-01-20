@@ -222,11 +222,13 @@ data | `object` | The data of the Webhook Delivery. Possible nested objects are 
 ```shell
 curl "https://invitepeople.com/api/v2/webhooks" \
   -X POST \
-  -H "Authorization: Bearer TOKEN" \
+  -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
-  -d '{"payload_url": "https://webhook/payload/url",
-       "secret": "976c3086-aa43-48fe-ab0c-cad8556b999c",
-       "webhook_event_kinds": ["participant_confirmed"]}'
+  -d '{
+        "payload_url": "https://webhook/payload/url",
+        "secret": "976c3086-aa43-48fe-ab0c-cad8556b999c",
+        "webhook_event_kinds": ["participant_confirmed"]
+      }'
 ```
 
 > The above command returns JSON structured like this:
@@ -292,7 +294,7 @@ incorrect&nbsp;kind | There are incorrect Webhook event kinds. Possible values a
 
 ```shell
 curl "https://invitepeople.com/api/v2/webhooks" \
-  -H "Authorization: Bearer TOKEN"
+  -H "Authorization: Bearer $TOKEN"
 ```
 
 > The above command returns JSON structured like this:
@@ -340,9 +342,9 @@ Use this endpoint to retrieve all Webhooks in your organization.
 ```shell
 curl "https://invitepeople.com/api/v2/webhooks/1" \
   -X PATCH \
-  -H "Authorization: Bearer TOKEN" \
+  -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
-  -d '{"active": false}'
+  -d '{ "active": false }'
 ```
 
 > The above command returns JSON structured like this:
@@ -384,7 +386,7 @@ Use this endpoint to update a specific Webhook.
 
 Parameter | Description
 --------- | -----------
-**WEBHOOK_ID** `required` | The ID of the Webhook.
+**WEBHOOK_ID**&nbsp;`required` | The ID of the Webhook.
 
 ### Parameters
 
@@ -409,7 +411,7 @@ incorrect&nbsp;kind | There are incorrect Webhook event kinds. Possible values a
 ```shell
 curl "https://invitepeople.com/api/v2/webhooks/1" \
   -X DELETE \
-  -H "Authorization: Bearer TOKEN"
+  -H "Authorization: Bearer $TOKEN"
 ```
 
 > The above command returns JSON structured like this:
@@ -439,7 +441,7 @@ Use this endpoint to delete a specific Webhook.
 
 Parameter | Description
 --------- | -----------
-**WEBHOOK_ID** `required` | The ID of the Webhook.
+**WEBHOOK_ID**&nbsp;`required` | The ID of the Webhook.
 
 ### Returns
 
@@ -450,7 +452,7 @@ If successfull it should return the deleted Webhook object.
 ```shell
 curl "https://invitepeople.com/api/v2/webhooks/1/verify" \
   -X POST \
-  -H "Authorization: Bearer TOKEN"
+  -H "Authorization: Bearer $TOKEN"
 ```
 
 > The above command returns JSON structured like this:
@@ -510,4 +512,4 @@ To become verified, the payload url endpoint should respond with a HMAC SHA256 d
 
 Parameter | Description
 --------- | -----------
-**WEBHOOK_ID** `required` | The ID of the Webhook.
+**WEBHOOK_ID**&nbsp;`required` | The ID of the Webhook.
