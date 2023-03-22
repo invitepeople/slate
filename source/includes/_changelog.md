@@ -1,4 +1,9 @@
 # Changelog
+## `2.2.8` 2023-03-22
+
+Added `custom_event_fields` to the Organization object.
+
+Added `custom_event_fields_data` to the Event object.
 
 ## `2.2.7` 2023-01-20
 

@@ -19,6 +19,7 @@ start_time | `string` | The start time of the Event in ISO 8601 format.
 end_time | `string` | The end time of the Event in ISO 8601 format.
 lang | `string` | The default language of the Event represented by an ISO 639-1 code.
 statistics | `object` | Sums up the number of Participants per status. Not included in the `Get all Events` endpoint.
+custom_event_fields_data | `object` | Custom field values that can be entered when a new Event is created.
 
 ## Get all Events
 
@@ -57,7 +58,26 @@ curl "https://invitepeople.com/api/v2/events" \
       },
       "email": "sollicitudin@invitepeople.com",
       "website": "https://invitepeople.com/sollicitudin/"
-    }
+    },
+    "custom_event_fields_data" : {
+      "ut_enim_ad": "Qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non."
+      "nemo_enim_ipsam": "Laudantium",
+    },
+    "department" : {
+      "id": 1,
+      "external_id": null,
+      "name" : "Perspiciatis"
+    },
+    "event_template" : {
+      "id": 1,
+      "name": "Voluptas nulla"
+    },
+    "event_images" : [
+      {
+        "kind": "share_image",
+        "url": "http://storage.invitepeople.com/000/000/share_image.png"
+      }
+    ]
   },
   {
     "id": 2,
@@ -85,7 +105,9 @@ curl "https://invitepeople.com/api/v2/events" \
       },
       "email": "vestibulum@invitepeople.com",
       "website": "https://invitepeople.com/vestibulum/"
-    }
+    },
+    "custom_event_fields_data": {},
+    "event_images": []
   }
 ]
 ```
@@ -141,7 +163,26 @@ curl "https://invitepeople.com/api/v2/events/1" \
     },
     "email": "sollicitudin@invitepeople.com",
     "website": "https://invitepeople.com/sollicitudin/"
-  }
+  },
+  "custom_event_fields_data" : {
+    "ut_enim_ad": "Qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non."
+    "nemo_enim_ipsam": "Laudantium",
+  },
+  "department" : {
+    "id": 1,
+    "external_id": null,
+    "name" : "Perspiciatis"
+  },
+  "event_template" : {
+    "id": 1,
+    "name": "Voluptas nulla"
+  },
+  "event_images" : [
+    {
+      "kind": "share_image",
+      "url": "http://storage.invitepeople.com/000/000/share_image.png"
+    }
+  ]
 }
 ```
 

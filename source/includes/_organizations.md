@@ -11,6 +11,7 @@ Property | Type | Description
 name | `string` | The name of the Organization.
 description | `string` | A description of the Organization.
 client_id | `string` | The ID used for API authentication of the Organization.
+custom_event_fields | `object` | Custom fields that can be entered when a new Event is created.
 
 ## Get your Organization
 
@@ -27,7 +28,25 @@ curl "https://invitepeople.com/api/v2/organizations/me" \
   "name": "Dolor Ligula",
   "description": "Etiam porta sem malesuada magna mollis euismod.",
   "created_at": "2021-04-06T08:51:21.996+02:00",
-  "client_id": "20e8a24d-c69f-4c3b-9c2e-e22941c119a8"
+  "client_id": "20e8a24d-c69f-4c3b-9c2e-e22941c119a8",
+  "custom_event_fields" : [
+    {
+      "kind": "text_field",
+      "mandatory": true,
+      "name": "ut_enim_ad",
+      "title": "Ut enim ad"
+    },
+    {
+      "kind": "select",
+      "name": "nemo_enim_ipsam",
+      "title": "Nemo enim ipsam",
+      "values": [
+        "Accusantium",
+        "Laudantium",
+        "Doloremque"
+      ]
+    }
+  ]
 }
 ```
 
