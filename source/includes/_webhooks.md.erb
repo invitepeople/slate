@@ -13,7 +13,7 @@ payload_url | `string` | The URL that receives callbacks from the Webhook.
 secret | `string` | A secret string used for signing and verifying the Webhook.
 active | `boolean` | Will return `true` if the Webhook is activated.
 verified | `boolean` | Will return `true` if the Webhook is verified by InvitePeople.
-webhook_event_kinds | `array` | The events that will trigger the callback from the Webhook. Possible values are `pariticpant_confirmed` and `participant_destroyed`.
+webhook_event_kinds | `array` | The events that will trigger the callback from the Webhook. Possible values are `participant_confirmed`, `participant_updated`, and `participant_destroyed`.
 
 <aside class="notice">
 Both <code>active</code> and <code>verify</code> needs to be <code>true</code> and at least one <code>event</code> needs to be set in order for the Webhook to deliver callbacks.
@@ -214,7 +214,7 @@ Property | Type | Description
 webhook_uuid | `string` | A unique ID of the Webhook that also will be present in the header `X-Ip-Webhook-Uuid`.
 webhook_delivery_uuid | `string` | A unique ID of the Webhook Delivery that also will be present in the header `X-Ip-Webhook-Delivery-Uuid`.
 retry | `integer` | Will be `0` for the first delivery. Max number of retries is `3`.
-webhook_event_kind | `string` | The event that triggered the Webhook. Possible values are `pariticpant_confirmed` and `participant_destroyed`.
+webhook_event_kind | `string` | The event that triggered the Webhook. Possible values are `participant_confirmed`, `participant_updated`, and `participant_destroyed`.
 data | `object` | The data of the Webhook Delivery. Possible nested objects are `participant` and `event`.
 
 ## Create a Webhook
@@ -276,7 +276,7 @@ Parameter | Type | Description
 --------- | ----------- | -----------
 **payload_url**&nbsp;`required` | `integer` | The payload url to where the new Webhook should deliver callbacks.
 **secret**&nbsp;`required` | `string` | The secret for the new Webhook used for verification and signing. **Save this for later!**
-webhook_event_kinds | `array` | The events that should trigger the Webhook. Possible values are `pariticpant_confirmed` and `participant_destroyed`.
+webhook_event_kinds | `array` | The events that should trigger the Webhook. Possible values are `participant_confirmed`, `participant_updated`, and `participant_destroyed`.
 
 ### Returns
 
@@ -288,7 +288,7 @@ Error | Description
 --------- | -----------
 payload&nbsp;url&nbsp;cannot&nbsp;be&nbsp;empty | No payload url provided.
 secret&nbsp;cannot&nbsp;be&nbsp;empty | No secret provided.
-incorrect&nbsp;kind | There are incorrect Webhook event kinds. Possible values are `pariticpant_confirmed` and `participant_destroyed`.
+incorrect&nbsp;kind | There are incorrect Webhook event kinds. Possible values are `participant_confirmed`, `participant_updated`, and `participant_destroyed`.
 
 ## Get all Webhooks
 
@@ -393,7 +393,7 @@ Parameter | Description
 Parameter | Type | Description
 --------- | ----------- | -----------
 active | `boolean` | Set to `false` to deactivate the Webhook, stopping all requests to the payload url.
-webhook_event_kinds | `array` | The events that should trigger the Webhook. Possible values are `pariticpant_confirmed` and `participant_destroyed`.
+webhook_event_kinds | `array` | The events that should trigger the Webhook. Possible values are `participant_confirmed`, `participant_updated`, and `participant_destroyed`.
 
 ### Returns
 
@@ -403,7 +403,7 @@ If successfull it should return the updated Webhook object.
 
 Error | Description
 --------- | -----------
-incorrect&nbsp;kind | There are incorrect Webhook event kinds. Possible values are `pariticpant_confirmed` and `participant_destroyed`.
+incorrect&nbsp;kind | There are incorrect Webhook event kinds. Possible values are `participant_confirmed`, `participant_updated`, and `participant_destroyed`.
 
 
 ## Delete a Webhook

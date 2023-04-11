@@ -1,4 +1,8 @@
 # Changelog
+## `2.2.9` 2022-04-11
+
+Added a new `webhook_event_kind` for the Webhook object: `participant_updated`.
+
 ## `2.2.8` 2023-03-22
 
 Added `custom_event_fields` to the Organization object.

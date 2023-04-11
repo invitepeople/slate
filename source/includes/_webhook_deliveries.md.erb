@@ -12,7 +12,7 @@ uuid | `string` | A unique ID for the specific callback that will be present in 
 retries | `integer` | The number of retries for the Webhook Delivery. Max number of retries is `3`.
 target_type | `string` | The object type that triggered the Webhook. Possible values are `Participant`.
 target_id | `integer` | The ID of the object that triggered the Webhook.
-kind | `integer` | The event that triggered the Webhook. Possible values are `pariticpant_confirmed` and `participant_destroyed`.
+kind | `integer` | The event that triggered the Webhook. Possible values are `participant_confirmed`, `participant_updated`, and `participant_destroyed`.
 status | `string` | The status of the Webhook Delivery after the latest retry. Possible values are `delivering`, `success` and `failed`.
 response_code | `string` | The HTTP response code after the latest retry.
 
