@@ -1,5 +1,5 @@
 # Changelog
-## `2.2.9` 2022-04-11
+## `2.2.9` 2023-04-11
 
 Added a new `webhook_event_kind` for the Webhook object: `participant_updated`.
 
