@@ -13,7 +13,7 @@ The User object represents an InvitePeople User.
 | lang      | `string` | The language code of the User. Eg. `en`, `de`, `se`, `fr`, `nb`.                |
 | time_zone | `string` | A string representing the time zone of the User, eg. `Stockholm`.               |
 
-## Get a specific User
+## Get a User
 
 ```shell
 curl "https://invitepeople.com/api/v2/users/1" \
@@ -234,4 +234,4 @@ Call with either User `ID` or `email`.
 | Parameter         | Description                                           |
 |-------------------|-------------------------------------------------------|
 | **ID**&nbsp;`mutually exclusive`    | The ID of the User.            |
-| **email**&nbsp;`mutually exclusive` | The email address of the User. |
+| **EMAIL**&nbsp;`mutually exclusive` | The email address of the User. |

@@ -36,6 +36,12 @@ curl "https://invitepeople.com/api/v2/participants/1/profile_field_values" \
       "sv": "Fusce Ultricies Vestibulum",
       "en": "Fermentum Pharetra Fringilla"
     }
+  },
+  "profile": {
+    "id": 1,
+    "participant": {
+      "id": 1
+    }
   }
 }
 ```
@@ -87,3 +93,52 @@ value&nbsp;cannot&nbsp;be&nbsp;empty | No value provided.
 profile&nbsp;field&nbsp;value&nbsp;already&nbsp;exists | A Profile Field Value is already created for this Profile Field and Participant. Profile Fields of kind `multi_select` may have multiple values per Profile Field.
 incorrect&nbsp;value | The provided value is not part of the defined values of the Profile Field. Applies to Profile Fields of kind `select`, `radio_buttons`, `multi_select` and `boolean`. Response should include `possible_values` with the defined values of the Profile Field.
 value&nbsp;is&nbsp;not&nbsp;a&nbsp;valid&nbsp;date | Applies to Profile Fields of kind `date_field`. The value should be in ISO 8601 format.
+
+## Get a Profile Field Value
+
+```shell
+curl "https://invitepeople.com/api/v2/participants/1/profile_field_values/1" \
+  -X GET \
+  -H "Authorization: Bearer $TOKEN" \
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 1,
+  "value": "Malesuada Sit Quam",
+  "created_at": "2021-04-06T08:51:21.996+02:00",
+  "updated_at": "2021-04-06T08:51:22.064+02:00",
+  "profile_field": {
+    "id": 1,
+    "name": "fusce-ultricies-vestibulum-fermentum-pharetra-fringilla",
+    "kind": "select",
+    "translated_name": {
+      "sv": "Fusce Ultricies Vestibulum",
+      "en": "Fermentum Pharetra Fringilla"
+    }
+  },
+  "profile": {
+    "id": 1,
+    "participant": {
+      "id": 1
+    }
+  }
+}
+```
+
+Use this endpoint to retrieve a specific Profile Field Value.
+
+The endpoint will return an array of objects for Profile Fields of kind `multi_select`.
+
+### HTTP Request
+
+`GET https://invitepeople.com/api/v2/participants/<PARTICIPANT_ID>/profile_field_values/<PROFILE_FIELD_ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+**PARTICIPANT_ID**&nbsp;`required` | The ID of the Participant.
+**PROFILE_FIELD_ID**&nbsp;`required` | The ID of the Profile Field.

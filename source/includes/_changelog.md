@@ -1,7 +1,9 @@
 # Changelog
 ## `2.2.10` 2023-04-25
 
-Added `Get a specific User` endpoint.
+Added `Get a User` endpoint.
+
+Added `Get a Profile Field Value` endpoint.
 ## `2.2.9` 2023-04-11
 
 Added a new `webhook_event_kind` for the Webhook object: `participant_updated`.
