@@ -12,6 +12,7 @@ includes:
   - events
   - ticket_types
   - profile_fields
+  - users
   - participants
   - tickets
   - profile_field_values
