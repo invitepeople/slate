@@ -28,7 +28,7 @@ code_clipboard: true
 
 meta:
   - name: description
-    content: Documentation for the Kittn API
+    content: Welcome to the InvitePeople API Docs! You can use the InvitePeople API to access your organization's data in InvitePeople.
 ---
 
 # Introduction
