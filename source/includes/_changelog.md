@@ -1,4 +1,10 @@
 # Changelog
+## `2.2.11` 2023-04-26
+
+Added `Update a Profile Field Value` endpoint.
+
+Added `Delete a Profile Field Value` endpoint.
+
 ## `2.2.10` 2023-04-25
 
 Added `Get a User` endpoint.
