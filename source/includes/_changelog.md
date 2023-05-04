@@ -1,4 +1,7 @@
 # Changelog
+## `2.2.12` 2023-05-04
+
+Added key `published` to the Event endpoints.
 ## `2.2.11` 2023-04-26
 
 Added `Update a Profile Field Value` endpoint.

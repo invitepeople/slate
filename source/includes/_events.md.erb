@@ -17,6 +17,7 @@ place | `string` | The name of the Event's place or location.
 description | `object` | The description of the Event for the registration page. An object with the Event's language codes as keys and the translated descriptions as values.
 start_time | `string` | The start time of the Event in ISO 8601 format.
 end_time | `string` | The end time of the Event in ISO 8601 format.
+published | `boolean` | Indicates if the Event is published or not.
 lang | `string` | The default language of the Event represented by an ISO 639-1 code.
 statistics | `object` | Sums up the number of Participants per status. Not included in the `Get all Events` endpoint.
 custom_event_fields_data | `object` | Custom field values that can be entered when a new Event is created.
@@ -42,6 +43,7 @@ curl "https://invitepeople.com/api/v2/events" \
     "zip": "123 45",
     "city": "Sollicitudin",
     "place": "Condimentum Vulputate",
+    "published": true,
     "description": {
       "sv": "<p>Maecenas faucibus mollis interdum. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>",
       "en": "<p>Curabitur blandit tempus porttitor. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>"
@@ -89,6 +91,7 @@ curl "https://invitepeople.com/api/v2/events" \
     "zip": "123 45",
     "city": "Ullamcorper",
     "place": "Mollis Sem",
+    "published": true,
     "description": {
       "sv": "<p>Nulla vitae elit libero, a pharetra augue. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>",
       "en": "<p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac.</p>"
@@ -140,6 +143,7 @@ curl "https://invitepeople.com/api/v2/events/1" \
   "zip": "123 45",
   "city": "Sollicitudin",
   "place": "Condimentum Vulputate",
+  "published": true,
   "description": {
     "sv": "<p>Maecenas faucibus mollis interdum. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>",
     "en": "<p>Curabitur blandit tempus porttitor. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>"
