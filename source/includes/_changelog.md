@@ -1,4 +1,8 @@
 # Changelog
+
+## `2.2.13` 2023-09-11
+
+Added `order` to the Ticket object.
 ## `2.2.12` 2023-05-04
 
 Added key `published` to the Event endpoints.

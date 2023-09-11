@@ -39,6 +39,24 @@ curl "https://invitepeople.com/api/v2/participants/1/tickets" \
   "vat": "0.0",
   "participant_id": 1,
   "external_id": null,
+  "order": {
+    "id": 1,
+    "created_at": "2018-05-29T10:37:15.653+02:00",
+    "updated_at": "2018-05-30T22:00:01.960+02:00",
+    "status": "paid",
+    "payment_method": null,
+    "invoice_fee": null,
+    "invoice_fee_vat": null,
+    "reversed_vat": false,
+    "vat": "0.0",
+    "sum": "0.0",
+    "currency": "SEK",
+    "utm_params": {
+      "utm_campaign": "Campaign",
+      "utm_medium": "email",
+      "utm_source": "email_sendout"
+    }
+  },
   "ticket_type": {
     "id": 1,
     "description": {
@@ -112,6 +130,24 @@ curl "https://invitepeople.com/api/v2/tickets/1" \
   "vat": "0.0",
   "participant_id": 1,
   "external_id": null,
+  "order": {
+    "id": 1,
+    "created_at": "2018-05-29T10:37:15.653+02:00",
+    "updated_at": "2018-05-30T22:00:01.960+02:00",
+    "status": "paid",
+    "payment_method": null,
+    "invoice_fee": null,
+    "invoice_fee_vat": null,
+    "reversed_vat": false,
+    "vat": "0.0",
+    "sum": "0.0",
+    "currency": "SEK",
+    "utm_params": {
+      "utm_campaign": "Campaign",
+      "utm_medium": "email",
+      "utm_source": "email_sendout"
+    }
+  },
   "ticket_type": {
     "id": 1,
     "description": {
@@ -159,6 +195,24 @@ curl "https://invitepeople.com/api/v2/tickets/1" \
   "vat": "0.0",
   "participant_id": 1,
   "external_id": null,
+  "order": {
+    "id": 1,
+    "created_at": "2018-05-29T10:37:15.653+02:00",
+    "updated_at": "2018-05-30T22:00:01.960+02:00",
+    "status": "paid",
+    "payment_method": null,
+    "invoice_fee": null,
+    "invoice_fee_vat": null,
+    "reversed_vat": false,
+    "vat": "0.0",
+    "sum": "0.0",
+    "currency": "SEK",
+    "utm_params": {
+      "utm_campaign": "Campaign",
+      "utm_medium": "email",
+      "utm_source": "email_sendout"
+    }
+  },
   "ticket_type": {
     "id": 1,
     "description": {
@@ -217,6 +271,24 @@ curl "https://invitepeople.com/api/v2/tickets/1" \
   "vat": "0.0",
   "participant_id": 1,
   "external_id": null,
+  "order": {
+    "id": 1,
+    "created_at": "2018-05-29T10:37:15.653+02:00",
+    "updated_at": "2018-05-30T22:00:01.960+02:00",
+    "status": "paid",
+    "payment_method": null,
+    "invoice_fee": null,
+    "invoice_fee_vat": null,
+    "reversed_vat": false,
+    "vat": "0.0",
+    "sum": "0.0",
+    "currency": "SEK",
+    "utm_params": {
+      "utm_campaign": "Campaign",
+      "utm_medium": "email",
+      "utm_source": "email_sendout"
+    }
+  },
   "ticket_type": {
     "id": 1,
     "description": {

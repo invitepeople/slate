@@ -97,6 +97,24 @@ curl "https://invitepeople.com/api/v2/users/1" \
           "paid_price": "0.0",
           "vat": "0.0",
           "external_id": null,
+          "order": {
+            "id": 1,
+            "created_at": "2018-05-29T10:37:15.653+02:00",
+            "updated_at": "2018-05-30T22:00:01.960+02:00",
+            "status": "paid",
+            "payment_method": null,
+            "invoice_fee": null,
+            "invoice_fee_vat": null,
+            "reversed_vat": false,
+            "vat": "0.0",
+            "sum": "0.0",
+            "currency": "SEK",
+            "utm_params": {
+              "utm_campaign": "Campaign",
+              "utm_medium": "email",
+              "utm_source": "email_sendout"
+            }
+          },
           "ticket_type": {
             "id": 1,
             "description": {
@@ -116,6 +134,24 @@ curl "https://invitepeople.com/api/v2/users/1" \
           "paid_price": "0.0",
           "vat": "0.0",
           "external_id": null,
+          "order": {
+            "id": 2,
+            "created_at": "2018-08-21T16:10:23.969+02:00",
+            "updated_at": "2018-10-11T14:00:16.147+02:00",
+            "status": "paid",
+            "payment_method": null,
+            "invoice_fee": null,
+            "invoice_fee_vat": null,
+            "reversed_vat": false,
+            "vat": "0.0",
+            "sum": "0.0",
+            "currency": "SEK",
+            "utm_params": {
+              "utm_campaign": "Campaign",
+              "utm_medium": "email",
+              "utm_source": "email_sendout"
+            }
+          },
           "ticket_type": {
             "id": 2,
             "description": {
@@ -143,6 +179,24 @@ curl "https://invitepeople.com/api/v2/users/1" \
           "paid_price": "0.0",
           "vat": "0.0",
           "external_id": null,
+          "order": {
+            "id": 3,
+            "created_at": "2018-08-21T16:17:40.098+02:00",
+            "updated_at": "2018-10-11T15:36:33.921+02:00",
+            "status": "paid",
+            "payment_method": null,
+            "invoice_fee": null,
+            "invoice_fee_vat": null,
+            "reversed_vat": false,
+            "vat": "0.0",
+            "sum": "0.0",
+            "currency": "SEK",
+            "utm_params": {
+              "utm_campaign": "Campaign",
+              "utm_medium": "email",
+              "utm_source": "email_sendout"
+            }
+          },
           "ticket_type": {
             "id": 3,
             "description": {
@@ -202,7 +256,7 @@ curl "https://invitepeople.com/api/v2/users/1" \
         "department" : {
           "id": 1,
           "external_id": null,
-          "name" : "Perspiciatis"
+          "name": "Perspiciatis"
         },
         "event_template" : {
           "id": 1,
