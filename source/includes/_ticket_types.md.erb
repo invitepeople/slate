@@ -9,7 +9,7 @@ The Ticket Type object represents a Ticket category for an Event. The Ticket Typ
 Property | Type | Description
 --------- | ----------- | -----------
 description | `object` | The name of the Ticket Type. An object with the Event's language codes as keys and the translated names as values.
-kind | `string` | Possible values are `entrance` (Entrance ticket), `other` (Additional ticket) and `null`.
+kind | `string` | Possible values are `entrance` (Entrance ticket), `exhibitor_card` (Exhibitor card), `speaker_card` (Speaker card), `addon` (Additional ticket), and `null` (Seminar ticket).
 external_id | `string` | An external ID from another system.
 price | `string` | Price in the in the Event's currency. The value is formatted as a decimal number.
 selling_start_time | `string` | Date and time sale starts for this Ticket Type. The value should be in ISO 8601 format.
