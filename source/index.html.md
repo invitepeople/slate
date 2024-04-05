@@ -17,6 +17,7 @@ includes:
   - tickets
   - profile_field_values
   - emails
+  - meetings
   - webhooks
   - webhook_deliveries
   - errors

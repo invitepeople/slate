@@ -1,5 +1,11 @@
 # Changelog
 
+## `2.2.14` 2024-04-05
+
+Added `Get all Meetings` endpoint.
+
+Added `Get a specific Meeting` endpoint.
+
 ## `2.2.13` 2023-09-11
 
 Added `order` to the Ticket object.

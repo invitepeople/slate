@@ -1,0 +1,322 @@
+# Meetings
+
+## Meeting
+
+The Meeting object represents a meeting between Participants of an Event or calendar slots marked as busy for a Participant.
+
+### Properties
+
+Property | Type | Description
+--------- | ----------- | -----------
+visibility | `string` | Indicates the visibility of the Meeting. Possible values are `Normal` (regular meetings), `Draft` (not yet published meetings), `Private` (marked as busy calendar slots).
+meeting_status | `string` | Indicates the status of the Meeting. Possible values are `confirmed`, `waiting_answer`, `user_removed`, `cancelled`, and `draft`.
+start_time | `string` | The start time of the Meeting in ISO 8601 format.
+end_time | `string` | The end time of the Meeting in ISO 8601 format.
+notes | `string` | Extra notes added to the Meeting.
+group_meeting | `boolean` | Indicates if the Meeting is a group meeting or not.
+external_video_meeting_url | `string` | The URL to an external video meeting room. Only applies to Meetings with Meeting Place of kind `external_video`.
+
+
+## Get all Meetings
+
+```shell
+curl "https://invitepeople.com/api/v2/events/1/meetings" \
+  -H "Authorization: Bearer $TOKEN"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "created_at" : "2024-04-04T19:49:10.602+02:00",
+    "end_time" : "2024-04-06T09:10:00.000+02:00",
+    "external_video_meeting_url" : null,
+    "group_meeting" : false,
+    "id" : 1,
+    "meeting_requests" : [
+      {
+        "id" : 1,
+        "participant_id" : 5,
+        "role" : "Participant",
+        "status" : "Accept",
+        "visibility" : "Private"
+      }
+    ],
+    "meeting_status" : "confirmed",
+    "notes" : null,
+    "start_time" : "2024-04-06T08:40:00.000+02:00",
+    "updated_at" : "2024-04-04T19:49:10.602+02:00",
+    "visibility" : "Private"
+  },
+  {
+    "created_at" : "2024-04-04T19:49:10.602+02:00",
+    "end_time" : "2024-04-06T10:10:00.000+02:00",
+    "external_video_meeting_url" : null,
+    "group_meeting" : false,
+    "id" : 2,
+    "meeting_place" : {
+      "capacity" : null,
+      "description" : "",
+      "hybrid_room" : null,
+      "id" : 2,
+      "kind" : "meeting_place",
+      "name" : "Room B"
+    },
+    "meeting_requests" : [
+      {
+        "id" : 2,
+        "participant_id" : 4,
+        "role" : "Participant",
+        "status" : "Accept",
+        "visibility" : "Normal"
+      },
+      {
+        "id" : 3,
+        "participant_id" : 3,
+        "role" : "Participant",
+        "status" : "Accept",
+        "visibility" : "Normal"
+      }
+    ],
+    "meeting_status" : "confirmed",
+    "notes" : "Donec sed odio dui. Etiam porta sem malesuada magna.",
+    "start_time" : "2024-04-06T09:40:00.000+02:00",
+    "updated_at" : "2024-04-04T19:49:10.602+02:00",
+    "visibility" : "Normal"
+  },
+  {
+    "created_at" : "2024-04-04T19:49:10.602+02:00",
+    "end_time" : "2024-04-06T10:10:00.000+02:00",
+    "external_video_meeting_url" : null,
+    "group_meeting" : false,
+    "id" : 3,
+    "meeting_place" : {
+      "capacity" : null,
+      "description" : "",
+      "hybrid_room" : null,
+      "id" : 1,
+      "kind" : "meeting_place",
+      "name" : "Room A"
+    },
+    "meeting_requests" : [
+      {
+        "id" : 4,
+        "participant_id" : 2,
+        "role" : "Participant",
+        "status" : "No_response",
+        "visibility" : "Normal"
+      },
+      {
+        "id" : 5,
+        "participant_id" : 1,
+        "role" : "Participant",
+        "status" : "Accept",
+        "visibility" : "Normal"
+      }
+    ],
+    "meeting_status" : "waiting_answer",
+    "notes" : null,
+    "start_time" : "2024-04-06T09:40:00.000+02:00",
+    "updated_at" : "2024-04-04T19:49:10.602+02:00",
+    "visibility" : "Normal"
+  }
+]
+```
+
+Use this endpoint to retrieve all Meetings for an Event.
+
+### HTTP Request
+
+`GET https://invitepeople.com/api/v2/events/<EVENT_ID>/meetings`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+**EVENT_ID**&nbsp;`required` | The ID of the Event.
+
+<%= partial 'includes/filter_query_params' %>
+
+## Get a specific Meeting
+
+```shell
+curl "https://invitepeople.com/api/v2/meetings/1" \
+  -H "Authorization: Bearer $TOKEN"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "created_at" : "2024-04-04T19:49:10.602+02:00",
+  "end_time" : "2024-04-06T10:10:00.000+02:00",
+  "external_video_meeting_url" : null,
+  "group_meeting" : false,
+  "id" : 6,
+  "meeting_events" : [],
+  "meeting_place" : {
+    "capacity" : null,
+    "description" : "",
+    "hybrid_room" : null,
+    "id" : 6,
+    "kind" : "meeting_place",
+    "name" : "Room C"
+  },
+  "meeting_requests" : [
+    {
+      "id" : 16,
+      "participant" : {
+        "bookable" : true,
+        "checked_in" : true,
+        "company" : {
+          "id" : 1,
+          "name" : "InvitePeople"
+        },
+        "created_at" : "2021-03-04T06:28:28.505+01:00",
+        "external_id" : null,
+        "id" : 8,
+        "login_link" : "https://invitepeople.com/40f010e3-f04a-47af-9531-7857892f557a/login/c599085e-fd53-4a7a-9354-893502bc5f22",
+        "profile" : {
+          "additional_title" : null,
+          "address" : null,
+          "city" : null,
+          "company_name" : "",
+          "country" : "SE",
+          "first_name" : "Pharetra",
+          "honorific_title" : null,
+          "id" : 9,
+          "last_name" : "Quam",
+          "phone" : null,
+          "profile_field_values" : [
+            {
+              "id" : 10,
+              "profile_field" : {
+                "id" : 1,
+                "kind" : "radio_buttons",
+                "name" : "justo-dapibus-condimentum",
+                "translated_name" : {
+                  "en" : "",
+                  "sv" : "Justo Dapibus Condimentum"
+                }
+              },
+              "value" : "Condimentum"
+            }
+          ],
+          "title" : "",
+          "zip" : null
+        },
+        "status" : "confirmed",
+        "tickets" : [],
+        "updated_at" : "2024-02-29T14:06:44.177+01:00",
+        "user" : {
+          "email" : "adipiscing@invitepeople.com",
+          "id" : 15,
+          "lang" : "en",
+          "mobile" : "46700000000",
+          "time_zone" : "Stockholm"
+        },
+        "visible" : true
+      },
+      "role" : "Participant",
+      "status" : "Accept",
+      "visibility" : "Normal"
+    },
+    {
+      "id" : 17,
+      "participant" : {
+        "bookable" : true,
+        "checked_in" : true,
+        "created_at" : "2024-01-25T09:03:12.391+01:00",
+        "external_id" : null,
+        "id" : 12,
+        "login_link" : "https://invitepeople.com/40f010e3-f04a-47af-9531-7857892f557a/login/c599085e-fd53-4a7a-9354-893502bc5f22",
+        "profile" : {
+          "additional_title" : null,
+          "address" : null,
+          "city" : null,
+          "company_name" : "",
+          "country" : "SE",
+          "first_name" : "Amet",
+          "honorific_title" : null,
+          "id" : 18,
+          "last_name" : "Risus Porta",
+          "phone" : null,
+          "profile_field_values" : [],
+          "title" : "",
+          "zip" : null
+        },
+        "status" : "confirmed",
+        "tickets" : [
+          {
+            "id": 1,
+            "created_at": "2018-05-29T10:37:15.653+02:00",
+            "updated_at": "2018-05-30T22:00:01.960+02:00",
+            "status": "Paid",
+            "checked_in": true,
+            "code": "00000001",
+            "paid_price": "0.0",
+            "vat": "0.0",
+            "external_id": null,
+            "order": {
+              "id": 1,
+              "created_at": "2018-05-29T10:37:15.653+02:00",
+              "updated_at": "2018-05-30T22:00:01.960+02:00",
+              "status": "paid",
+              "payment_method": null,
+              "invoice_fee": null,
+              "invoice_fee_vat": null,
+              "reversed_vat": false,
+              "vat": "0.0",
+              "sum": "0.0",
+              "currency": "SEK",
+              "utm_params": {
+                "utm_campaign": "Campaign",
+                "utm_medium": "email",
+                "utm_source": "email_sendout"
+              }
+            },
+            "ticket_type": {
+              "id": 1,
+              "description": {
+                "sv": "Mattis Purus",
+                "en": "Sollicitudin Ullamcorper"
+              },
+              "kind": "entrance"
+            }
+          }
+        ],
+        "updated_at" : "2024-01-25T09:03:12.460+01:00",
+        "user" : {
+          "email" : "amet@invitepeople.com",
+          "id" : 1,
+          "lang" : "sv",
+          "mobile" : "46700000000",
+          "time_zone" : "Stockholm"
+        },
+        "visible" : true
+      },
+      "role" : "Participant",
+      "status" : "Accept",
+      "visibility" : "Normal"
+    }
+  ],
+  "meeting_status" : "confirmed",
+  "notes" : null,
+  "start_time" : "2024-04-06T09:40:00.000+02:00",
+  "updated_at" : "2024-04-04T19:49:10.602+02:00",
+  "visibility" : "Normal"
+}
+```
+
+Use this endpoint to retrieve a specific Meeting.
+
+### HTTP Request
+
+`GET https://invitepeople.com/api/v2/meetings/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+**ID**&nbsp;`required` | The ID of the Meeting.
