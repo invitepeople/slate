@@ -1,5 +1,9 @@
 # Changelog
 
+## `2.2.15` 2024-05-20
+
+Added `data_minimization_status` to the Event object.
+
 ## `2.2.14` 2024-04-05
 
 Added `Get all Meetings` endpoint.

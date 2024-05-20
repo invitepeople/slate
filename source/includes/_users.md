@@ -253,6 +253,7 @@ curl "https://invitepeople.com/api/v2/users/1" \
           "ut_enim_ad": "Qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non."
           "nemo_enim_ipsam": "Laudantium",
         },
+        "data_minimization_status" : null,
         "department" : {
           "id": 1,
           "external_id": null,

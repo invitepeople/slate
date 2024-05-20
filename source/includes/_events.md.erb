@@ -21,6 +21,7 @@ published | `boolean` | Indicates if the Event is published or not.
 lang | `string` | The default language of the Event represented by an ISO 639-1 code.
 statistics | `object` | Sums up the number of Participants per status. Not included in the `Get all Events` endpoint.
 custom_event_fields_data | `object` | Custom field values that can be entered when a new Event is created.
+data_minimization_status | `string` | The data minimization status of the Event. Possible values are `null`, `pending_anonymization`, `pending_deletion`, `anonymized`, and `exempted`.
 
 ## Get all Events
 
@@ -65,6 +66,7 @@ curl "https://invitepeople.com/api/v2/events" \
       "ut_enim_ad": "Qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non."
       "nemo_enim_ipsam": "Laudantium",
     },
+    "data_minimization_status" : null,
     "department" : {
       "id": 1,
       "external_id": null,
@@ -110,6 +112,7 @@ curl "https://invitepeople.com/api/v2/events" \
       "website": "https://invitepeople.com/vestibulum/"
     },
     "custom_event_fields_data": {},
+    "data_minimization_status": null,
     "event_images": []
   }
 ]
@@ -172,6 +175,7 @@ curl "https://invitepeople.com/api/v2/events/1" \
     "ut_enim_ad": "Qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non."
     "nemo_enim_ipsam": "Laudantium",
   },
+  "data_minimization_status" : null,
   "department" : {
     "id": 1,
     "external_id": null,
