@@ -14,6 +14,7 @@ includes:
   - profile_fields
   - users
   - participants
+  - companies
   - tickets
   - profile_field_values
   - emails

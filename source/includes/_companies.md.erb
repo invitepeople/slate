@@ -1,0 +1,213 @@
+# Companies
+
+## Company
+
+The Company object represents a company for an Event. A Company connects to Participants through the Employee object.
+
+### Properties
+
+Property | Type | Description
+--------- | ----------- | -----------
+name | `string` | The name of the Company.
+kind | `string` | Possible values are `Exhibitor`, `Partner`, `Sponsor`, `MainSponsor`, and `Poster`.
+external_id | `string` | An external ID from another system.
+location | `string` | The location or booth of the Company.
+visible_in_community | `boolean` | Indicates if the Company is visible in the companies list.
+scanning | `boolean` | Indicates if the Company has Lead scanning enabled for representatives.
+max_employee_amount | `integer` | The maximum number of Employees allowed for the Company. A `null` value indicates an unlimited number of Employees allowed.
+monitor_visitors | `boolean` | Indicates if the Company has visitor monitoring for enabled for representatives.
+
+## Get all Companies
+
+```shell
+curl "https://invitepeople.com/api/v2/events/1/companies" \
+  -H "Authorization: Bearer $TOKEN"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "created_at" : "2024-04-17T11:37:41.649+02:00",
+    "employees" : [
+      {
+        "id" : 1,
+        "participant_id" : 1,
+        "role" : "Administrator",
+        "status" : "Accepted"
+      },
+      {
+        "id" : 2,
+        "participant_id" : 2,
+        "role" : "Employee",
+        "status" : "Accepted"
+      }
+    ],
+    "external_id" : null,
+    "id" : 1,
+    "kind" : "Exhibitor",
+    "location" : "A1:1",
+    "max_employee_amount" : 10,
+    "monitor_visitors" : false,
+    "name" : "InvitePeople",
+    "profile" : {
+      "address" : "",
+      "address2" : "",
+      "city" : "Stockholm",
+      "country" : "SE",
+      "email" : "loremipsum@invitepeople.com",
+      "id" : 1,
+      "phone" : "",
+      "presentation" : "Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.",
+      "profile_field_values" : [
+        {
+          "id" : 1,
+          "profile_field" : {
+            "id" : 1,
+            "kind" : "text_field",
+            "name" : "index",
+            "translated_name" : {
+              "en" : "Vehicula"
+            }
+          },
+          "value" : "Nullam id dolor id nibh ultricies."
+        }
+      ],
+      "region" : "",
+      "url" : "https://invitepeople.com",
+      "zip" : "12345"
+    },
+    "scanning" : true,
+    "updated_at" : "2024-07-01T17:38:01.039+02:00",
+    "visible_in_community" : true
+  },
+  {
+    "created_at" : "2024-04-18T12:19:47.436+02:00",
+    "employees" : [
+      {
+        "id" : 3,
+        "participant_id" : 3,
+        "role" : "Administrator",
+        "status" : "Accepted"
+      }
+    ],
+    "external_id" : null,
+    "id" : 2,
+    "kind" : "Partner",
+    "location" : "",
+    "max_employee_amount" : null,
+    "monitor_visitors" : false,
+    "name" : "Tempus Porttitor",
+    "profile" : {
+      "address" : "",
+      "address2" : "",
+      "city" : "Stockholm",
+      "country" : "SE",
+      "email" : "tempusporttitor@invitepeople.com",
+      "id" : 2,
+      "phone" : "",
+      "presentation" : "Urabitur blandit tempus porttitor.",
+      "profile_field_values" : [],
+      "region" : "",
+      "url" : "",
+      "zip" : ""
+    },
+    "scanning" : false,
+    "updated_at" : "2024-04-20T17:14:30.311+02:00",
+    "visible_in_community" : false
+  }
+]
+```
+
+Use this endpoint to retrieve all Companies for an Event.
+
+### HTTP Request
+
+`GET https://invitepeople.com/api/v2/events/<EVENT_ID>/companies`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+**EVENT_ID**&nbsp;`required` | The ID of the Event.
+
+<%= partial 'includes/filter_query_params' %>
+
+## Get a specific Company
+
+```shell
+curl "https://invitepeople.com/api/v2/company/1" \
+  -H "Authorization: Bearer $TOKEN"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "created_at" : "2024-04-17T11:37:41.649+02:00",
+  "employees" : [
+    {
+      "id" : 1,
+      "participant_id" : 1,
+      "role" : "Administrator",
+      "status" : "Accepted"
+    },
+    {
+      "id" : 2,
+      "participant_id" : 2,
+      "role" : "Employee",
+      "status" : "Accepted"
+    }
+  ],
+  "external_id" : null,
+  "id" : 1,
+  "kind" : "Exhibitor",
+  "location" : "A1:1",
+  "max_employee_amount" : 10,
+  "monitor_visitors" : false,
+  "name" : "InvitePeople",
+  "profile" : {
+    "address" : "",
+    "address2" : "",
+    "city" : "Stockholm",
+    "country" : "SE",
+    "email" : "loremipsum@invitepeople.com",
+    "id" : 1,
+    "phone" : "",
+    "presentation" : "Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.",
+    "profile_field_values" : [
+      {
+        "id" : 1,
+        "profile_field" : {
+          "id" : 1,
+          "kind" : "text_field",
+          "name" : "index",
+          "translated_name" : {
+            "en" : "Vehicula"
+          }
+        },
+        "value" : "Nullam id dolor id nibh ultricies."
+      }
+    ],
+    "region" : "",
+    "url" : "https://invitepeople.com",
+    "zip" : "12345"
+  },
+  "scanning" : true,
+  "updated_at" : "2024-07-01T17:38:01.039+02:00",
+  "visible_in_community" : true
+}
+```
+
+Use this endpoint to retrieve a specific Company.
+
+### HTTP Request
+
+`GET https://invitepeople.com/api/v2/companies/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+**ID**&nbsp;`required` | The ID of the Company.

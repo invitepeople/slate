@@ -1,5 +1,11 @@
 # Changelog
 
+## `2.2.16` 2024-08-16
+
+Added `Get all Companies` endpoint.
+
+Added `Get a specific Company` endpoint.
+
 ## `2.2.15` 2024-05-20
 
 Added `data_minimization_status` to the Event object.
