@@ -1,0 +1,222 @@
+# Partner Codes
+
+## Partner Code
+
+The Partner Code object represents a promo code for an Event. A Partner Code connects to Ticket Types through the Partner Code Ticket Type object.
+
+### Properties
+
+Property | Type | Description
+--------- | ----------- | -----------
+code | `string` | The code of the Partner Code.
+header | `string` | The header of the Partner Code. An object with the Event's language codes as keys and the translated headers as values.
+description | `string` | The description of the Partner Code. An object with the Event's language codes as keys and the translated descriptions as values.
+ticket_header | `string` | The headline for the ticket section of the Partner Code. An object with the Event's language codes as keys and the translated ticket headers as values.
+show_regular_price | `boolean` | Indicates if regular prices are shown on the promo code page.
+include_eventsite_description | `boolean` | Indicates if the eventsite description is shown on the promo code page.
+invited_only | `boolean` | Indicates if only invited participants are allowed to register.
+force_min_purchase_amount | `boolean` | Indicates if buyers are forced to select the minimum allowed amount of tickets.
+max_sold_tickets_limit| `integer` | The total allowed number of tickets.
+
+## Get all Partner Codes
+
+```shell
+curl "https://invitepeople.com/api/v2/events/1/partner_codes" \
+  -H "Authorization: Bearer $TOKEN"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "code" : "promo4561",
+    "created_at" : "2022-08-31T09:14:13.682+02:00",
+    "description" : {
+        "en" : ""
+    },
+    "force_min_purchase_amount" : false,
+    "header" : {
+        "en" : ""
+    },
+    "id" : 1,
+    "include_eventsite_description" : false,
+    "invited_only" : false,
+    "max_sold_tickets_limit" : null,
+    "partner_code_ticket_types" : [
+      {
+        "amount" : null,
+        "id" : 1,
+        "max_purchase_amount" : 1,
+        "max_purchase_amount_per_person" : 1,
+        "min_purchase_amount" : 1,
+        "price" : "0.0",
+        "selling_end_time" : null,
+        "selling_start_time" : null,
+        "ticket_type" : {
+          "description" : {
+            "en" : "Coffee"
+          },
+          "id" : 1,
+          "kind" : "addon"
+        }
+      },
+      {
+        "amount" : null,
+        "id" : 2,
+        "max_purchase_amount" : 1,
+        "max_purchase_amount_per_person" : 1,
+        "min_purchase_amount" : 1,
+        "price" : "0.0",
+        "selling_end_time" : null,
+        "selling_start_time" : null,
+        "ticket_type" : {
+          "description" : {
+            "en" : "Lunch"
+          },
+          "id" : 2,
+          "kind" : "addon"
+        }
+      }
+    ],
+    "show_regular_price" : true,
+    "ticket_header" : {
+        "en" : ""
+    },
+    "updated_at" : "2024-08-16T10:38:56.441+02:00"
+  },
+  {
+    "code" : "vip37",
+    "created_at" : "2022-05-06T15:41:32.383+02:00",
+    "description" : {
+      "en" : "<p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>"
+    },
+    "force_min_purchase_amount" : false,
+    "header" : {
+      "en" : ""
+    },
+    "id" : 2,
+    "include_eventsite_description" : false,
+    "invited_only" : true,
+    "max_sold_tickets_limit" : 100,
+    "partner_code_ticket_types" : [
+      {
+        "amount" : null,
+        "id" : 3,
+        "max_purchase_amount" : 1,
+        "max_purchase_amount_per_person" : 1,
+        "min_purchase_amount" : 1,
+        "price" : "0.0",
+        "selling_end_time" : null,
+        "selling_start_time" : null,
+        "ticket_type" : {
+          "description" : {
+              "en" : "VIP"
+          },
+          "id" : 3,
+          "kind" : "entrance"
+        }
+      }
+    ],
+    "show_regular_price" : false,
+    "ticket_header" : {
+      "en" : ""
+    },
+    "updated_at" : "2024-05-10T05:43:42.787+02:00"
+  }
+]
+```
+
+Use this endpoint to retrieve all Partner Codes for an Event.
+
+### HTTP Request
+
+`GET https://invitepeople.com/api/v2/events/<EVENT_ID>/partner_codes`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+**EVENT_ID**&nbsp;`required` | The ID of the Event.
+
+<%= partial 'includes/filter_query_params' %>
+
+## Get a specific Partner Code
+
+```shell
+curl "https://invitepeople.com/api/v2/partner_codes/1" \
+  -H "Authorization: Bearer $TOKEN"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "code" : "promo4561",
+  "created_at" : "2022-08-31T09:14:13.682+02:00",
+  "description" : {
+      "en" : ""
+  },
+  "force_min_purchase_amount" : false,
+  "header" : {
+      "en" : ""
+  },
+  "id" : 1,
+  "include_eventsite_description" : false,
+  "invited_only" : false,
+  "max_sold_tickets_limit" : null,
+  "partner_code_ticket_types" : [
+    {
+      "amount" : null,
+      "id" : 1,
+      "max_purchase_amount" : 1,
+      "max_purchase_amount_per_person" : 1,
+      "min_purchase_amount" : 1,
+      "price" : "0.0",
+      "selling_end_time" : null,
+      "selling_start_time" : null,
+      "ticket_type" : {
+        "description" : {
+          "en" : "Coffee"
+        },
+        "id" : 1,
+        "kind" : "addon"
+      }
+    },
+    {
+      "amount" : null,
+      "id" : 2,
+      "max_purchase_amount" : 1,
+      "max_purchase_amount_per_person" : 1,
+      "min_purchase_amount" : 1,
+      "price" : "0.0",
+      "selling_end_time" : null,
+      "selling_start_time" : null,
+      "ticket_type" : {
+        "description" : {
+          "en" : "Lunch"
+        },
+        "id" : 2,
+        "kind" : "addon"
+      }
+    }
+  ],
+  "show_regular_price" : true,
+  "ticket_header" : {
+      "en" : ""
+  },
+  "updated_at" : "2024-08-16T10:38:56.441+02:00"
+}
+```
+
+Use this endpoint to retrieve a specific Partner Code.
+
+### HTTP Request
+
+`GET https://invitepeople.com/api/v2/partner_codes/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+**ID**&nbsp;`required` | The ID of the Partner Code.

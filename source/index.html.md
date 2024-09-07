@@ -11,11 +11,13 @@ includes:
   - organizations
   - events
   - ticket_types
+  - partner_codes
   - profile_fields
   - users
   - participants
   - companies
   - tickets
+  - ticket_scans
   - profile_field_values
   - emails
   - meetings

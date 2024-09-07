@@ -1,5 +1,17 @@
 # Changelog
 
+## `2.2.17` 2024-09-07
+
+Added `Get all Partner Codes` endpoint.
+
+Added `Get a specific Partner Code` endpoint.
+
+Added `Get all Ticket Scans` endpoint.
+
+Added `Get a specific Ticket Scan` endpoint.
+
+Added `partner_code_id` to the Ticket object.
+
 ## `2.2.16` 2024-08-16
 
 Added `Get all Companies` endpoint.

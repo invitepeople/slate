@@ -1,0 +1,163 @@
+# Ticket Scans
+
+## Ticket Scan
+
+The Ticket Scan object represents a specific on-site scan of a Ticket.
+
+### Properties
+
+Property | Type | Description
+--------- | ----------- | -----------
+scan_id | `string` | An ID originating from the scanning device.
+code | `string` | The scanned barcode.
+valid_ticket | `boolean` | Indicates if the scan was valid or not.
+offline_scan | `boolean` | Indicates if the scan performed while the device was offline.
+scanned_at | `string` | The time of the scan in ISO 8601 format.
+
+## Get all Ticket Scans
+
+```shell
+curl "https://invitepeople.com/api/v2/events/1/ticket_scans" \
+  -H "Authorization: Bearer $TOKEN"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "code" : "00000001",
+    "created_at" : "2024-04-06T16:55:05.251+02:00",
+    "id" : 1,
+    "offline_scan" : null,
+    "scan_id" : "20CDAC80-AE60-44F2-A004-CDD29860128C:08603254:1712415304.72",
+    "scanned_at" : "2024-04-06T16:55:04.720+02:00",
+    "ticket" : {
+      "checked_in" : true,
+      "code" : "00000001",
+      "created_at" : "2024-04-06T16:54:59.377+02:00",
+      "external_id" : null,
+      "id" : 1,
+      "order_id" : 1,
+      "paid_price" : "0.0",
+      "participant_id" : 1,
+      "partner_code_id" : 1,
+      "status" : "Paid",
+      "ticket_type_id" : 1,
+      "updated_at" : "2024-04-06T16:55:05.217+02:00",
+      "vat" : "0.0"
+    },
+    "updated_at" : "2024-04-06T16:55:05.251+02:00",
+    "user" : {
+      "email" : "loremipsum@invitepeople.com",
+      "id" : 1,
+      "lang" : "en",
+      "mobile" : "46700000000",
+      "time_zone" : "Stockholm"
+    },
+    "valid_ticket" : true
+  },
+  {
+    "code" : "00000002",
+    "created_at" : "2024-04-23T09:49:15.146+02:00",
+    "id" : 2,
+    "offline_scan" : true,
+    "scan_id" : "20CDAC80-AE60-44F2-A004-CDD29860128C:69504485:1712414774.125",
+    "scanned_at" : "2024-04-23T08:49:14.000+02:00",
+    "ticket" : {
+      "checked_in" : true,
+      "code" : "00000002",
+      "created_at" : "2022-10-14T08:36:12.638+02:00",
+      "external_id" : null,
+      "id" : 2,
+      "order_id" : 2,
+      "paid_price" : "1000.0",
+      "participant_id" : 2,
+      "partner_code_id" : null,
+      "status" : "Paid",
+      "ticket_type_id" : 1,
+      "updated_at" : "2024-04-23T09:49:15.119+02:00",
+      "vat" : "200.0"
+    },
+    "updated_at" : "2024-04-23T09:49:15.146+02:00",
+    "user" : {
+      "email" : "loremipsum@invitepeople.com",
+      "id" : 1,
+      "lang" : "en",
+      "mobile" : "46700000000",
+      "time_zone" : "Stockholm"
+    },
+    "valid_ticket" : true
+  }
+]
+```
+
+Use this endpoint to retrieve all Ticket Scans for an Event.
+
+### HTTP Request
+
+`GET https://invitepeople.com/api/v2/events/<EVENT_ID>/ticket_scans`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+**EVENT_ID**&nbsp;`required` | The ID of the Event.
+
+<%= partial 'includes/filter_query_params' %>
+
+## Get a specific Ticket Scan
+
+```shell
+curl "https://invitepeople.com/api/v2/ticket_scans/1" \
+  -H "Authorization: Bearer $TOKEN"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "code" : "00000001",
+  "created_at" : "2024-04-06T16:55:05.251+02:00",
+  "id" : 1,
+  "offline_scan" : null,
+  "scan_id" : "20CDAC80-AE60-44F2-A004-CDD29860128C:08603254:1712415304.72",
+  "scanned_at" : "2024-04-06T16:55:04.720+02:00",
+  "ticket" : {
+    "checked_in" : true,
+    "code" : "00000001",
+    "created_at" : "2024-04-06T16:54:59.377+02:00",
+    "external_id" : null,
+    "id" : 1,
+    "order_id" : 1,
+    "paid_price" : "0.0",
+    "participant_id" : 1,
+    "partner_code_id" : 1,
+    "status" : "Paid",
+    "ticket_type_id" : 1,
+    "updated_at" : "2024-04-06T16:55:05.217+02:00",
+    "vat" : "0.0"
+  },
+  "updated_at" : "2024-04-06T16:55:05.251+02:00",
+  "user" : {
+    "email" : "loremipsum@invitepeople.com",
+    "id" : 1,
+    "lang" : "en",
+    "mobile" : "46700000000",
+    "time_zone" : "Stockholm"
+  },
+  "valid_ticket" : true
+}
+```
+
+Use this endpoint to retrieve a specific Ticket Scan.
+
+### HTTP Request
+
+`GET https://invitepeople.com/api/v2/ticket_scans/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+**ID**&nbsp;`required` | The ID of the Company.
