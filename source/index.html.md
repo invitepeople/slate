@@ -23,6 +23,7 @@ includes:
   - meetings
   - webhooks
   - webhook_deliveries
+  - web_analytics
   - errors
   - changelog
 

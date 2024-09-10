@@ -1,5 +1,13 @@
 # Changelog
 
+## `2.2.18` 2024-09-10
+
+Added `Aggregate Web Analytics` endpoint.
+
+Added `Break down Web Analytics` endpoint.
+
+Added `Get Web Analytics time series` endpoint.
+
 ## `2.2.17` 2024-09-07
 
 Added `Get all Partner Codes` endpoint.
