@@ -8,6 +8,7 @@ The Company object represents a company for an Event. A Company connects to Part
 
 Property | Type | Description
 --------- | ----------- | -----------
+slug | `string` | The URL slug of the Company.
 name | `string` | The name of the Company.
 kind | `string` | Possible values are `Exhibitor`, `Partner`, `Sponsor`, `MainSponsor`, and `Poster`.
 external_id | `string` | An external ID from another system.
@@ -46,6 +47,7 @@ curl "https://invitepeople.com/api/v2/events/1/companies" \
     ],
     "external_id" : null,
     "id" : 1,
+    "slug" : "dc4498f1dffe",
     "kind" : "Exhibitor",
     "location" : "A1:1",
     "max_employee_amount" : 10,
@@ -94,6 +96,7 @@ curl "https://invitepeople.com/api/v2/events/1/companies" \
     ],
     "external_id" : null,
     "id" : 2,
+    "slug" : "ef4473f13dfe",
     "kind" : "Partner",
     "location" : "",
     "max_employee_amount" : null,
@@ -162,6 +165,7 @@ curl "https://invitepeople.com/api/v2/companies/1" \
   ],
   "external_id" : null,
   "id" : 1,
+  "slug" : "dc4498f1dffe",
   "kind" : "Exhibitor",
   "location" : "A1:1",
   "max_employee_amount" : 10,

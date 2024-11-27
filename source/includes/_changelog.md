@@ -1,5 +1,13 @@
 # Changelog
 
+## `2.2.19` 2024-11-26
+
+Added `slug` to the Event object.
+
+Added `slug` to the Seminar object.
+
+Added `slug` to the Company object.
+
 ## `2.2.18` 2024-09-10
 
 Added `Aggregate Web Analytics` endpoint.
@@ -39,9 +47,11 @@ Added `Get a specific Meeting` endpoint.
 ## `2.2.13` 2023-09-11
 
 Added `order` to the Ticket object.
+
 ## `2.2.12` 2023-05-04
 
 Added key `published` to the Event endpoints.
+
 ## `2.2.11` 2023-04-26
 
 Added `Update a Profile Field Value` endpoint.
@@ -53,6 +63,7 @@ Added `Delete a Profile Field Value` endpoint.
 Added `Get a User` endpoint.
 
 Added `Get a Profile Field Value` endpoint.
+
 ## `2.2.9` 2023-04-11
 
 Added a new `webhook_event_kind` for the Webhook object: `participant_updated`.
@@ -116,6 +127,7 @@ Added key `created_at` to the `Get your Organization` endpoint.
 Added keys `created_at` and `updated_at` to the `Get all Ticket Types`, `Get all Profile Fields`, `Get a specific Profile Field` and `Create a Profile Field Value` endpoints.
 
 Added error code `422 Unprocessable Entity` to docs.
+
 ## `2.1.2` 2021-08-27
 
 Added `Get a specific Profile Field` endpoint.

@@ -7,7 +7,7 @@ The User object represents an InvitePeople User.
 ### Properties
 
 | Property  | Type     | Description                                                                     |
-|-----------|----------|---------------------------------------------------------------------------------|
+| --------- | -------- | ------------------------------------------------------------------------------- |
 | email     | `string` | The email of the User.                                                          |
 | mobile    | `string` | The mobile phone number of the User in international format, eg. `46700000000`. |
 | lang      | `string` | The language code of the User. Eg. `en`, `de`, `se`, `fr`, `nb`.                |
@@ -84,6 +84,7 @@ curl "https://invitepeople.com/api/v2/users/1" \
       },
       "company": {
         "id": 2,
+        "slug": "ef4473f13dfe",
         "name": "InvitePeople"
       },
       "tickets": [
@@ -161,6 +162,7 @@ curl "https://invitepeople.com/api/v2/users/1" \
             "kind": null,
             "seminar": {
               "id": 1,
+              "slug": "ee74234991fe",
               "name": "Ridiculus Venenatis Fusce",
               "location": "Condimentum Inceptos",
               "start_time": "2018-10-11T14:05:00.000+02:00",
@@ -206,6 +208,7 @@ curl "https://invitepeople.com/api/v2/users/1" \
             "kind": null,
             "seminar": {
               "id": 2,
+              "slug": "fe741fc771dd",
               "name": "Ullamcorper Sit Tellus",
               "location": "Mattis Pellentesque",
               "start_time": "2018-10-11T15:35:00.000+02:00",
@@ -217,6 +220,7 @@ curl "https://invitepeople.com/api/v2/users/1" \
       ],
       "event": {
         "id": 1,
+        "slug": "ff361767ffe2",
         "name": "Sollicitudin Lorem",
         "created_at": "2017-11-20T13:55:42.425+01:00",
         "updated_at": "2018-02-14T13:15:36.789+01:00",
@@ -275,7 +279,7 @@ curl "https://invitepeople.com/api/v2/users/1" \
 }
 ```
 
-Use this endpoint to retrieve a specific User, having Participants for Events within the Organization. 
+Use this endpoint to retrieve a specific User, having Participants for Events within the Organization.
 
 Call with either User `ID` or `email`.
 
@@ -286,7 +290,7 @@ Call with either User `ID` or `email`.
 
 ### URL Parameters
 
-| Parameter         | Description                                           |
-|-------------------|-------------------------------------------------------|
+| Parameter                           | Description                    |
+| ----------------------------------- | ------------------------------ |
 | **ID**&nbsp;`mutually exclusive`    | The ID of the User.            |
 | **EMAIL**&nbsp;`mutually exclusive` | The email address of the User. |

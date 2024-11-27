@@ -8,6 +8,7 @@ The Event object represents an event with a name, time and place. An Event has m
 
 Property | Type | Description
 --------- | ----------- | -----------
+slug | `string` | The URL slug of the Event.
 name | `string` | The name of the Event.
 country | `string` | The country of the Event's location represented by an ISO 3166-1 alpha-2 code.
 address | `string` | The address of the Event.
@@ -36,6 +37,7 @@ curl "https://invitepeople.com/api/v2/events" \
 [
   {
     "id": 1,
+    "slug": "ff361767ffe2",
     "name": "Sollicitudin Lorem",
     "created_at": "2017-11-20T13:55:42.425+01:00",
     "updated_at": "2018-02-14T13:15:36.789+01:00",
@@ -85,6 +87,7 @@ curl "https://invitepeople.com/api/v2/events" \
   },
   {
     "id": 2,
+    "slug": "dd761347ee72",
     "name": "Vestibulum Bibendum",
     "created_at": "2017-11-20T13:55:42.425+01:00",
     "updated_at": "2018-02-14T13:15:36.789+01:00",
@@ -138,6 +141,7 @@ curl "https://invitepeople.com/api/v2/events/1" \
 ```json
 {
   "id": 1,
+  "slug": "ff361767ffe2",
   "name": "Sollicitudin Lorem",
   "created_at": "2017-11-20T13:55:42.425+01:00",
   "updated_at": "2018-02-14T13:15:36.789+01:00",
