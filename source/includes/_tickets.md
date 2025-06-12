@@ -14,7 +14,7 @@ The Ticket object represents a ticket belonging to a Participant. The ticket can
 | paid_price      | `string`  | The price paid for the Ticket in the Event's currency. The value is formatted as a decimal number. |
 | vat             | `string`  | The VAT paid for the Ticket in the Event's currency. The value is formatted as a decimal number.   |
 | external_id     | `string`  | An external ID from another system.                                                                |
-| partner_code_id | `string`  | Reference to any Partner Code                                                                      |
+| partner_code_id | `string`  | Reference to any Partner Code.                                                                     |
 
 ## Create a Ticket
 
