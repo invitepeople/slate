@@ -6,14 +6,15 @@ The Ticket object represents a ticket belonging to a Participant. The ticket can
 
 ### Properties
 
-Property | Type | Description
---------- | ----------- | -----------
-status | `string` | Possible values are `Paid` and `Reserved`. 
-checked_in | `boolean` | Will return true if the Participant has checked in with the Ticket.
-code | `string` | A generated 8 digit unique code.
-paid_price | `string` | The price paid for the Ticket in the Event's currency. The value is formatted as a decimal number.
-vat | `string` | The VAT paid for the Ticket in the Event's currency. The value is formatted as a decimal number.
-external_id | `string` | An external ID from another system.
+| Property        | Type      | Description                                                                                        |
+| --------------- | --------- | -------------------------------------------------------------------------------------------------- |
+| status          | `string`  | Possible values are `Paid` and `Reserved`.                                                         |
+| checked_in      | `boolean` | Will return true if the Participant has checked in with the Ticket.                                |
+| code            | `string`  | A generated 8 digit unique code.                                                                   |
+| paid_price      | `string`  | The price paid for the Ticket in the Event's currency. The value is formatted as a decimal number. |
+| vat             | `string`  | The VAT paid for the Ticket in the Event's currency. The value is formatted as a decimal number.   |
+| external_id     | `string`  | An external ID from another system.                                                                |
+| partner_code_id | `string`  | Reference to any Partner Code                                                                      |
 
 ## Create a Ticket
 
@@ -35,6 +36,7 @@ curl "https://invitepeople.com/api/v2/participants/1/tickets" \
   "status": "Paid",
   "checked_in": true,
   "code": "00000001",
+  "partner_code_id": null,
   "paid_price": "0.0",
   "vat": "0.0",
   "participant_id": 1,
@@ -62,7 +64,7 @@ curl "https://invitepeople.com/api/v2/participants/1/tickets" \
     "description": {
       "sv": "Mattis Purus",
       "en": "Sollicitudin Ullamcorper"
-      },
+    },
     "kind": "entrance"
   }
 }
@@ -72,10 +74,9 @@ curl "https://invitepeople.com/api/v2/participants/1/tickets" \
 
 ```json
 {
-    "error": "could not create ticket"
+  "error": "could not create ticket"
 }
 ```
-
 
 Use this endpoint to create a Ticket for a Participant.
 
@@ -87,15 +88,15 @@ Use this endpoint to create a Ticket for a Participant.
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-**PARTICIPANT_ID**&nbsp;`required` | The ID of the Participant.
+| Parameter                          | Description                |
+| ---------------------------------- | -------------------------- |
+| **PARTICIPANT_ID**&nbsp;`required` | The ID of the Participant. |
 
 ### Parameters
 
-Parameter | Type | Description
---------- | ----------- | -----------
-**ticket_type_id**&nbsp;`required` | `integer` | The ID of the Ticket Type for the new Ticket.
+| Parameter                          | Type      | Description                                   |
+| ---------------------------------- | --------- | --------------------------------------------- |
+| **ticket_type_id**&nbsp;`required` | `integer` | The ID of the Ticket Type for the new Ticket. |
 
 ### Returns
 
@@ -103,10 +104,10 @@ If successfull it should return the created Ticket object.
 
 ### Errors
 
-Error | Description
---------- | -----------
-ticket&nbsp;type&nbsp;not&nbsp;found | The provided Ticket Type ID could not be found.
-could&nbsp;not&nbsp;create&nbsp;ticket | The Ticket could not be created.
+| Error                                  | Description                                     |
+| -------------------------------------- | ----------------------------------------------- |
+| ticket&nbsp;type&nbsp;not&nbsp;found   | The provided Ticket Type ID could not be found. |
+| could&nbsp;not&nbsp;create&nbsp;ticket | The Ticket could not be created.                |
 
 ## Get a Ticket
 
@@ -126,6 +127,7 @@ curl "https://invitepeople.com/api/v2/tickets/1" \
   "status": "Paid",
   "checked_in": true,
   "code": "00000001",
+  "partner_code_id": null,
   "paid_price": "0.0",
   "vat": "0.0",
   "participant_id": 1,
@@ -153,7 +155,7 @@ curl "https://invitepeople.com/api/v2/tickets/1" \
     "description": {
       "sv": "Mattis Purus",
       "en": "Sollicitudin Ullamcorper"
-      },
+    },
     "kind": "entrance"
   }
 }
@@ -167,9 +169,9 @@ Use this endpoint to retrieve a specific Ticket.
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-**ID**&nbsp;`required` | The ID of the Ticket.
+| Parameter              | Description           |
+| ---------------------- | --------------------- |
+| **ID**&nbsp;`required` | The ID of the Ticket. |
 
 ## Update a Ticket
 
@@ -191,6 +193,7 @@ curl "https://invitepeople.com/api/v2/tickets/1" \
   "status": "Paid",
   "checked_in": true,
   "code": "00000001",
+  "partner_code_id": null,
   "paid_price": "0.0",
   "vat": "0.0",
   "participant_id": 1,
@@ -218,7 +221,7 @@ curl "https://invitepeople.com/api/v2/tickets/1" \
     "description": {
       "sv": "Mattis Purus",
       "en": "Sollicitudin Ullamcorper"
-      },
+    },
     "kind": "entrance"
   }
 }
@@ -232,18 +235,17 @@ Use this endpoint to update a Ticket.
 <br>
 `Content-Type: application/json`
 
-
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-**ID**&nbsp;`required` | The ID of the Ticket.
+| Parameter              | Description           |
+| ---------------------- | --------------------- |
+| **ID**&nbsp;`required` | The ID of the Ticket. |
 
 ### Parameters
 
-Parameter | Type | Description
---------- | ----------- | -----------
-checked_in | `boolean` | Sets the check in status of the Ticket.
+| Parameter  | Type      | Description                             |
+| ---------- | --------- | --------------------------------------- |
+| checked_in | `boolean` | Sets the check in status of the Ticket. |
 
 ### Returns
 
@@ -267,6 +269,7 @@ curl "https://invitepeople.com/api/v2/tickets/1" \
   "status": "Paid",
   "checked_in": true,
   "code": "00000001",
+  "partner_code_id": null,
   "paid_price": "0.0",
   "vat": "0.0",
   "participant_id": 1,
@@ -294,7 +297,7 @@ curl "https://invitepeople.com/api/v2/tickets/1" \
     "description": {
       "sv": "Mattis Purus",
       "en": "Sollicitudin Ullamcorper"
-      },
+    },
     "kind": "entrance"
   }
 }
@@ -304,10 +307,9 @@ curl "https://invitepeople.com/api/v2/tickets/1" \
 
 ```json
 {
-    "error": "could not delete ticket"
+  "error": "could not delete ticket"
 }
 ```
-
 
 Use this endpoint to delete a free Ticket.
 
@@ -315,13 +317,11 @@ Use this endpoint to delete a free Ticket.
 
 `DELETE https://invitepeople.com/api/v2/tickets/<ID>`
 
-
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-**ID**&nbsp;`required` | The ID of the Ticket.
-
+| Parameter              | Description           |
+| ---------------------- | --------------------- |
+| **ID**&nbsp;`required` | The ID of the Ticket. |
 
 ### Returns
 
@@ -329,6 +329,6 @@ If successfull it should return the deleted Ticket object.
 
 ### Errors
 
-Error | Description
---------- | -----------
-could&nbsp;not&nbsp;delete&nbsp;ticket | The ticket is not free and cannot be deleted.
+| Error                                  | Description                                   |
+| -------------------------------------- | --------------------------------------------- |
+| could&nbsp;not&nbsp;delete&nbsp;ticket | The ticket is not free and cannot be deleted. |
